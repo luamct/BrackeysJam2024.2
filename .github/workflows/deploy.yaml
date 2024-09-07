@@ -75,5 +75,4 @@ jobs:
       - name: publish to itch
         run: |
           ./butler push artifact/Windows.zip $ITCH_USERNAME/$ITCH_PROJECT_NAME:win --assume-yes --userversion=${{ needs.export_game.outputs.version }}
-          ./butler push artifact/LinuxX11.zip $ITCH_USERNAME/$ITCH_PROJECT_NAME:amd64 --assume-yes --userversion=${{ needs.export_game.outputs.version }}
           ./butler push artifact/Web.zip $ITCH_USERNAME/$ITCH_PROJECT_NAME:web --assume-yes --userversion=${{ needs.export_game.outputs.version }}
