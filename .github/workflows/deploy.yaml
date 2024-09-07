@@ -61,7 +61,7 @@ jobs:
 
   publish_itch:
     needs: export_game
-    if: ${{ contains(github.ref, 'master') }}
+    if: ${{ contains(github.ref, 'main') }}
     runs-on: ubuntu-latest
     steps:
       - name: download artifact
