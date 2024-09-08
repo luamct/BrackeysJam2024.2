@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=4 uid="uid://dm3igb3h34frm"]
+[gd_scene load_steps=7 format=4 uid="uid://dm3igb3h34frm"]
 
 [ext_resource type="PackedScene" uid="uid://dy8dnjev3o7oc" path="res://scenes/vehicle.tscn" id="1_xem0p"]
+
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_nslgc"]
 [ext_resource type="Texture2D" uid="uid://c0obnotrichpa" path="res://assets/tileset_terrain.png" id="1_y7qrs"]
+[ext_resource type="Texture2D" uid="uid://kprsak1yp4f0" path="res://assets/SecretHideout_V1.png" id="2_q0fmb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7s37u"]
 texture = ExtResource("1_y7qrs")
@@ -167,14 +170,74 @@ texture_region_size = Vector2i(32, 32)
 9:6/0/texture_origin = Vector2i(0, 8)
 3:8/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_76ssl"]
+texture = ExtResource("2_q0fmb")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_crnlc"]
 tile_shape = 1
 tile_layout = 5
 tile_offset_axis = 1
 tile_size = Vector2i(32, 16)
 sources/0 = SubResource("TileSetAtlasSource_7s37u")
+sources/1 = SubResource("TileSetAtlasSource_76ssl")
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_nslgc")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
