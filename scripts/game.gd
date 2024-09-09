@@ -42,12 +42,15 @@ func _input(event: InputEvent):
 			var base_cell = base_tile_map.get_cell_tile_data(tile)
 			if base_cell != null:
 				var world_coords: Vector2 = base_tile_map.map_to_local(tile)
+
+				var atlas: TileSetAtlasSource = TILESET.get_source(selected_module.source_id)
+				shop_module_sprite.texture.atlas.region = atlas.get_tile_texture_region(selected_module.atlas_coords)
+
 				shop_module_sprite.visible = true
 				shop_module_sprite.global_position = world_coords
 			else:
 				shop_module_sprite.visible = false
 
-			
 	if Input.is_key_pressed(KEY_ESCAPE):
 		get_tree().quit()
 		

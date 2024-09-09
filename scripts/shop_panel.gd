@@ -2,26 +2,26 @@ class_name ShopPanel
 extends PanelContainer
 
 signal module_selected(module: ModuleResource)
+
 @export var available_modules: Array[ModuleResource]
 
 @onready var grid_container: GridContainer = $GridContainer
 
-const MODULE_BUTTON = preload("res://scenes/module_button.tscn")
+const MODULE_BUTTON_SCENE = preload("res://scenes/module_button.tscn")
+const TILESET = preload("res://resources/Tileset.tres")
 
 func _ready() -> void:
-	#for module in available_modules:
-		#var module_instance = MODULE_BUTTON.instantiate()
-		#grid_container.add_child(module_instance)
-	
-	var buttons: Array[Node] = $GridContainer.get_children()
-	var i = 0
-	for button: BaseButton in buttons:
-		button.pressed.connect(func(): module_button_pressed(i))
-		i += 1
+	for module in available_modules:
+		var module_button: TextureButton = MODULE_BUTTON_SCENE.instantiate()
+		var atlas_texture = module_button.texture_normal as AtlasTexture
+		var atlas: TileSetAtlasSource = TILESET.get_source(module.source_id)
+		atlas_texture.region = atlas.get_tile_texture_region(module.atlas_coords)
+		
+		module_button.pressed.connect(func(): module_button_pressed(module))
+		grid_container.add_child(module_button)
 
-func module_button_pressed(module_index: int):
-	module_selected.emit(available_modules[module_index])
+func module_button_pressed(module: ModuleResource):
+	module_selected.emit(module)
 	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
