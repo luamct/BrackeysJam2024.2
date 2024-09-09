@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://w2rj0hku6ccs"]
+
+[ext_resource type="Texture2D" uid="uid://c0obnotrichpa" path="res://assets/tileset_terrain.png" id="1_8152h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vbd4o"]
+atlas = ExtResource("1_8152h")
+region = Rect2(224, 128, 32, 32)
+
+[node name="ModuleButton" type="TextureButton"]
+custom_minimum_size = Vector2(64, 64)
+texture_normal = SubResource("AtlasTexture_vbd4o")
+ignore_texture_size = true
+stretch_mode = 4

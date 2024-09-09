@@ -1,240 +1,17 @@
-[gd_scene load_steps=9 format=4 uid="uid://dm3igb3h34frm"]
+[gd_scene load_steps=8 format=4 uid="uid://dm3igb3h34frm"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_nslgc"]
 [ext_resource type="PackedScene" uid="uid://cckyy7pvonvg7" path="res://scenes/vehicle.tscn" id="1_xem0p"]
 [ext_resource type="Texture2D" uid="uid://c0obnotrichpa" path="res://assets/tileset_terrain.png" id="1_y7qrs"]
-[ext_resource type="Texture2D" uid="uid://kprsak1yp4f0" path="res://assets/SecretHideout_V1.png" id="2_q0fmb"]
-[ext_resource type="PackedScene" uid="uid://b1rjsavlwlqrd" path="res://scenes/ui.tscn" id="5_b8fey"]
+[ext_resource type="TileSet" uid="uid://dfm6gj16u0smi" path="res://resources/Tileset.tres" id="3_q028f"]
+[ext_resource type="PackedScene" uid="uid://b1rjsavlwlqrd" path="res://scenes/shop_panel.tscn" id="5_b8fey"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7s37u"]
-texture = ExtResource("1_y7qrs")
-texture_region_size = Vector2i(32, 32)
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-4:0/0 = 0
-5:0/0 = 0
-6:0/0 = 0
-7:0/0 = 0
-8:0/0 = 0
-9:0/0 = 0
-10:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-4:1/0 = 0
-5:1/0 = 0
-6:1/0 = 0
-7:1/0 = 0
-8:1/0 = 0
-9:1/0 = 0
-10:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-3:2/0 = 0
-4:2/0 = 0
-5:2/0 = 0
-6:2/0 = 0
-7:2/0 = 0
-8:2/0 = 0
-9:2/0 = 0
-10:2/0 = 0
-0:3/0 = 0
-1:3/0 = 0
-2:3/0 = 0
-3:3/0 = 0
-4:3/0 = 0
-5:3/0 = 0
-6:3/0 = 0
-7:3/0 = 0
-8:3/0 = 0
-8:3/0/texture_origin = Vector2i(0, 8)
-9:3/0 = 0
-9:3/0/texture_origin = Vector2i(0, 8)
-10:3/0 = 0
-10:3/0/texture_origin = Vector2i(0, 8)
-0:4/0 = 0
-0:4/0/texture_origin = Vector2i(0, 8)
-1:4/0 = 0
-1:4/0/texture_origin = Vector2i(0, 8)
-2:4/0 = 0
-2:4/0/texture_origin = Vector2i(0, 8)
-3:4/0 = 0
-3:4/0/texture_origin = Vector2i(0, 8)
-4:4/0 = 0
-4:4/0/texture_origin = Vector2i(0, 8)
-5:4/0 = 0
-5:4/0/texture_origin = Vector2i(0, 8)
-6:4/0 = 0
-6:4/0/texture_origin = Vector2i(0, 8)
-7:4/0 = 0
-7:4/0/texture_origin = Vector2i(0, 8)
-8:4/0 = 0
-8:4/0/texture_origin = Vector2i(0, 8)
-9:4/0 = 0
-9:4/0/texture_origin = Vector2i(0, 8)
-10:4/0 = 0
-10:4/0/texture_origin = Vector2i(0, 8)
-0:5/0 = 0
-0:5/0/texture_origin = Vector2i(0, 8)
-1:5/0 = 0
-1:5/0/texture_origin = Vector2i(0, 8)
-2:5/0 = 0
-2:5/0/texture_origin = Vector2i(0, 8)
-3:5/0 = 0
-3:5/0/texture_origin = Vector2i(0, 8)
-4:5/0 = 0
-4:5/0/texture_origin = Vector2i(0, 8)
-5:5/0 = 0
-5:5/0/texture_origin = Vector2i(0, 8)
-6:5/0 = 0
-6:5/0/texture_origin = Vector2i(0, 8)
-7:5/0 = 0
-7:5/0/texture_origin = Vector2i(0, 8)
-8:5/0 = 0
-8:5/0/texture_origin = Vector2i(0, 8)
-9:5/0 = 0
-9:5/0/texture_origin = Vector2i(0, 8)
-10:5/0 = 0
-10:5/0/texture_origin = Vector2i(0, 8)
-0:6/0 = 0
-0:6/0/texture_origin = Vector2i(0, 8)
-1:6/0 = 0
-1:6/0/texture_origin = Vector2i(0, 8)
-2:6/0 = 0
-2:6/0/texture_origin = Vector2i(0, 8)
-3:6/0 = 0
-3:6/0/texture_origin = Vector2i(0, 8)
-4:6/0 = 0
-4:6/0/texture_origin = Vector2i(0, 8)
-5:6/0 = 0
-5:6/0/texture_origin = Vector2i(0, 8)
-6:6/0 = 0
-6:6/0/texture_origin = Vector2i(0, 8)
-7:6/0 = 0
-7:6/0/texture_origin = Vector2i(0, 8)
-8:6/0 = 0
-8:6/0/texture_origin = Vector2i(0, 8)
-10:6/0 = 0
-10:6/0/texture_origin = Vector2i(0, 8)
-0:7/0 = 0
-0:7/0/texture_origin = Vector2i(0, 8)
-1:7/0 = 0
-1:7/0/texture_origin = Vector2i(0, 8)
-2:7/0 = 0
-2:7/0/texture_origin = Vector2i(0, 8)
-3:7/0 = 0
-3:7/0/texture_origin = Vector2i(0, 8)
-4:7/0 = 0
-4:7/0/texture_origin = Vector2i(0, 8)
-5:7/0 = 0
-5:7/0/texture_origin = Vector2i(0, 8)
-6:7/0 = 0
-6:7/0/texture_origin = Vector2i(0, 8)
-7:7/0 = 0
-7:7/0/texture_origin = Vector2i(0, 8)
-8:7/0 = 0
-8:7/0/texture_origin = Vector2i(0, 8)
-0:8/0 = 0
-1:8/0 = 0
-2:8/0 = 0
-4:8/0 = 0
-5:8/0 = 0
-6:8/0 = 0
-7:8/0 = 0
-8:8/0 = 0
-0:9/0 = 0
-1:9/0 = 0
-2:9/0 = 0
-3:9/0 = 0
-4:9/0 = 0
-5:9/0 = 0
-6:9/0 = 0
-7:9/0 = 0
-8:9/0 = 0
-0:10/0 = 0
-1:10/0 = 0
-2:10/0 = 0
-3:10/0 = 0
-4:10/0 = 0
-5:10/0 = 0
-6:10/0 = 0
-7:10/0 = 0
-8:10/0 = 0
-9:10/0 = 0
-10:10/0 = 0
-9:6/0 = 0
-9:6/0/texture_origin = Vector2i(0, 8)
-3:8/0 = 0
+[sub_resource type="AtlasTexture" id="AtlasTexture_h02md"]
+atlas = ExtResource("1_y7qrs")
+region = Rect2(224, 128, 32, 32)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_76ssl"]
-texture = ExtResource("2_q0fmb")
-texture_region_size = Vector2i(32, 32)
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-4:0/0 = 0
-5:0/0 = 0
-6:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-4:1/0 = 0
-5:1/0 = 0
-6:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-3:2/0 = 0
-4:2/0 = 0
-5:2/0 = 0
-6:2/0 = 0
-0:3/0 = 0
-1:3/0 = 0
-2:3/0 = 0
-3:3/0 = 0
-4:3/0 = 0
-5:3/0 = 0
-6:3/0 = 0
-0:4/0 = 0
-1:4/0 = 0
-2:4/0 = 0
-3:4/0 = 0
-4:4/0 = 0
-5:4/0 = 0
-0:5/0 = 0
-1:5/0 = 0
-2:5/0 = 0
-3:5/0 = 0
-4:5/0 = 0
-5:5/0 = 0
-0:6/0 = 0
-1:6/0 = 0
-2:6/0 = 0
-3:6/0 = 0
-4:6/0 = 0
-5:6/0 = 0
-6:6/0 = 0
-0:7/0 = 0
-1:7/0 = 0
-2:7/0 = 0
-3:7/0 = 0
-4:7/0 = 0
-5:7/0 = 0
-6:7/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_crnlc"]
-tile_shape = 1
-tile_layout = 5
-tile_offset_axis = 1
-tile_size = Vector2i(32, 16)
-sources/0 = SubResource("TileSetAtlasSource_7s37u")
-sources/1 = SubResource("TileSetAtlasSource_76ssl")
+[sub_resource type="AtlasTexture" id="AtlasTexture_s3xmq"]
+atlas = SubResource("AtlasTexture_h02md")
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_nslgc")
@@ -248,14 +25,19 @@ visible = false
 [node name="BaseTileMapLayer" type="TileMapLayer" parent="."]
 y_sort_enabled = true
 tile_map_data = PackedByteArray("AAD+//7/AAABAAAAAAD+////AAABAAAAAAD+/wAAAAABAAAAAAD+/wEAAAABAAAAAAD+/wIAAAABAAAAAAD///7/AAABAAAAAAD/////AAABAAAAAAD//wAAAAABAAAAAAD//wEAAAABAAAAAAD//wIAAAABAAAAAAAAAP7/AAABAAAAAAAAAP//AAABAAAAAAAAAAAAAAABAAAAAAAAAAEAAAABAAAAAAAAAAIAAAABAAAAAAABAP7/AAABAAAAAAABAP//AAABAAAAAAABAAAAAAABAAAAAAABAAEAAAABAAAAAAABAAIAAAABAAAAAAA=")
-tile_set = SubResource("TileSet_crnlc")
+tile_set = ExtResource("3_q028f")
 
 [node name="ModulesTileMapLayer" type="TileMapLayer" parent="."]
 y_sort_enabled = true
 tile_map_data = PackedByteArray("AAD+//7/AAAJAAUAAAD+/wEAAAADAAQAAAD/////AAAFAAUAAAAAAP//AAABAAQAAAAAAAEAAAAIAAMAAAA=")
-tile_set = SubResource("TileSet_crnlc")
+tile_set = ExtResource("3_q028f")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
-[node name="UI" parent="CanvasLayer" instance=ExtResource("5_b8fey")]
+[node name="ShopPanel" parent="CanvasLayer" instance=ExtResource("5_b8fey")]
+unique_name_in_owner = true
+
+[node name="ShopModuleSprite" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.603922)
+texture = SubResource("AtlasTexture_s3xmq")
