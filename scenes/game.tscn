@@ -1,10 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://dm3igb3h34frm"]
-
-[ext_resource type="PackedScene" uid="uid://dy8dnjev3o7oc" path="res://scenes/vehicle.tscn" id="1_xem0p"]
+[gd_scene load_steps=9 format=4 uid="uid://dm3igb3h34frm"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_nslgc"]
+[ext_resource type="PackedScene" uid="uid://cckyy7pvonvg7" path="res://scenes/vehicle.tscn" id="1_xem0p"]
 [ext_resource type="Texture2D" uid="uid://c0obnotrichpa" path="res://assets/tileset_terrain.png" id="1_y7qrs"]
 [ext_resource type="Texture2D" uid="uid://kprsak1yp4f0" path="res://assets/SecretHideout_V1.png" id="2_q0fmb"]
+[ext_resource type="PackedScene" uid="uid://b1rjsavlwlqrd" path="res://scenes/ui.tscn" id="5_b8fey"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7s37u"]
 texture = ExtResource("1_y7qrs")
@@ -243,15 +243,19 @@ script = ExtResource("1_nslgc")
 zoom = Vector2(3, 3)
 
 [node name="vehicle" parent="Camera2D" instance=ExtResource("1_xem0p")]
+visible = false
 
 [node name="BaseTileMapLayer" type="TileMapLayer" parent="."]
 y_sort_enabled = true
-position = Vector2(0, 2)
 tile_map_data = PackedByteArray("AAD+//7/AAABAAAAAAD+////AAABAAAAAAD+/wAAAAABAAAAAAD+/wEAAAABAAAAAAD+/wIAAAABAAAAAAD///7/AAABAAAAAAD/////AAABAAAAAAD//wAAAAABAAAAAAD//wEAAAABAAAAAAD//wIAAAABAAAAAAAAAP7/AAABAAAAAAAAAP//AAABAAAAAAAAAAAAAAABAAAAAAAAAAEAAAABAAAAAAAAAAIAAAABAAAAAAABAP7/AAABAAAAAAABAP//AAABAAAAAAABAAAAAAABAAAAAAABAAEAAAABAAAAAAABAAIAAAABAAAAAAA=")
 tile_set = SubResource("TileSet_crnlc")
 
 [node name="ModulesTileMapLayer" type="TileMapLayer" parent="."]
 y_sort_enabled = true
-position = Vector2(0, 2)
-tile_map_data = PackedByteArray("AAD+//7/AAAJAAUAAAD+////AAABAAAAAAD+/wAAAAABAAAAAAD+/wEAAAADAAQAAAD+/wIAAAABAAAAAAD///7/AAABAAAAAAD/////AAAFAAUAAAD//wAAAAABAAAAAAD//wEAAAABAAAAAAD//wIAAAABAAAAAAAAAP7/AAABAAAAAAAAAP//AAABAAQAAAAAAAAAAAABAAAAAAAAAAEAAAAIAAMAAAAAAAIAAAABAAAAAAABAP7/AAABAAAAAAABAP//AAABAAAAAAABAAAAAAABAAAAAAABAAEAAAABAAAAAAABAAIAAAABAAAAAAA=")
+tile_map_data = PackedByteArray("AAD+//7/AAAJAAUAAAD+/wEAAAADAAQAAAD/////AAAFAAUAAAAAAP//AAABAAQAAAAAAAEAAAAIAAMAAAA=")
 tile_set = SubResource("TileSet_crnlc")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="UI" parent="CanvasLayer" instance=ExtResource("5_b8fey")]
