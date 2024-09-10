@@ -5,3 +5,6 @@ extends Resource
 @export var source_id: int
 @export var atlas_coords: Vector2i
 @export var cost: int
+
+func description() -> String:
+	return "Description for module " + name

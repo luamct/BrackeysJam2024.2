@@ -6,14 +6,31 @@
 [ext_resource type="Resource" uid="uid://4ymiucru3ptf" path="res://resources/modules/PowerUnit.tres" id="4_pq5qo"]
 [ext_resource type="Resource" uid="uid://dorguhvcsyce2" path="res://resources/modules/Laser.tres" id="5_ic7lp"]
 
-[node name="ShopPanel" type="PanelContainer"]
+[node name="ShopPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 132.0
+offset_bottom = 132.0
+script = ExtResource("1_ac08i")
+available_modules = Array[ExtResource("2_jokcm")]([ExtResource("3_wqf85"), ExtResource("5_ic7lp"), ExtResource("4_pq5qo")])
+
+[node name="ModulesContainer" type="PanelContainer" parent="."]
 offset_left = 66.0
 offset_top = 79.0
 offset_right = 198.0
 offset_bottom = 211.0
-script = ExtResource("1_ac08i")
-available_modules = Array[ExtResource("2_jokcm")]([ExtResource("3_wqf85"), ExtResource("4_pq5qo"), ExtResource("5_ic7lp")])
 
-[node name="GridContainer" type="GridContainer" parent="."]
+[node name="GridContainer" type="GridContainer" parent="ModulesContainer"]
 layout_mode = 2
 columns = 2
+
+[node name="DescriptionContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+offset_left = 67.0
+offset_top = 247.0
+offset_right = 199.0
+offset_bottom = 379.0
+
+[node name="DescriptionLabel" type="Label" parent="DescriptionContainer"]
+unique_name_in_owner = true
+layout_mode = 2
