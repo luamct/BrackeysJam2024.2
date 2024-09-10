@@ -23,5 +23,3 @@ func _ready() -> void:
 func module_button_pressed(module: ModuleResource):
 	module_selected.emit(module)
 	
-func _process(delta: float) -> void:
-	pass

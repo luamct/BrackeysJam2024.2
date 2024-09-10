@@ -2,13 +2,13 @@ class_name Game
 extends Node2D
 
 const source_id = 1
-const tile_coords = Vector2i(3, 3)
 const TILESET = preload("res://resources/Tileset.tres")
 
 @onready var tile_map: TileMapLayer = $ModulesTileMapLayer
 @onready var base_tile_map: TileMapLayer = $BaseTileMapLayer
 @onready var shop_panel: ShopPanel = %ShopPanel
 @onready var shop_module_sprite: Sprite2D = $ShopModuleSprite
+@onready var currency_label: Label = %CurrencyLabel
 
 # Game mutable state
 var selected_module: ModuleResource = null
@@ -19,26 +19,30 @@ var player_currency: int = 12
 
 func _ready() -> void:
 	shop_panel.module_selected.connect(on_module_selected)
+	currency_label.text = str(player_currency)
 
 func on_module_selected(module: ModuleResource):
 	print(module.name)
 	selected_module = module
 	
-func _process(delta: float) -> void:
-	pass
-
 func _input(event: InputEvent):
-	
+
 	if Input.is_action_just_pressed("left_click"):
 		var mouse_position: Vector2 = get_global_mouse_position()
 		var tile_coords: Vector2i = tile_map.local_to_map(mouse_position)
-		
+
 		if selected_module != null:
 			var base_cell: TileData = base_tile_map.get_cell_tile_data(tile_coords)
 			if base_cell != null:
 				if !truck_grid.has(tile_coords):
-					tile_map.set_cell(tile_coords, selected_module.source_id, selected_module.atlas_coords)
-					truck_grid[tile_coords] = selected_module
+					if player_currency >= selected_module.cost:
+						tile_map.set_cell(tile_coords, selected_module.source_id, selected_module.atlas_coords)
+						truck_grid[tile_coords] = selected_module
+
+						player_currency -= selected_module.cost
+						currency_label.text = str(player_currency)
+					else: 
+						print("Not enough money!")
 				else:
 					print("Slot already occupied!")
 
@@ -61,10 +65,13 @@ func _input(event: InputEvent):
 
 	if Input.is_key_pressed(KEY_ESCAPE):
 		get_tree().quit()
-		
 
-func get_module_sprite(module: ModuleResource) -> Texture2D:
-	var atlas: TileSetAtlasSource = TILESET.get_source(module.source_id)
-	var atlasImage = atlas.texture.get_image()
-	var tileImage = atlasImage.get_region(atlas.get_tile_texture_region(module.atlas_coords))
-	return ImageTexture.create_from_image(tileImage)
+#func place_module(module: ModuleResource, position: Vector2i):
+	#pass
+	
+	
+#func get_module_sprite(module: ModuleResource) -> Texture2D:
+	#var atlas: TileSetAtlasSource = TILESET.get_source(module.source_id)
+	#var atlasImage = atlas.texture.get_image()
+	#var tileImage = atlasImage.get_region(atlas.get_tile_texture_region(module.atlas_coords))
+	#return ImageTexture.create_from_image(tileImage)
