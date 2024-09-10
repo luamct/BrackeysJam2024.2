@@ -10,7 +10,12 @@ const TILESET = preload("res://resources/Tileset.tres")
 @onready var shop_panel: ShopPanel = %ShopPanel
 @onready var shop_module_sprite: Sprite2D = $ShopModuleSprite
 
+# Game mutable state
 var selected_module: ModuleResource = null
+var truck_grid: Dictionary
+var truck_size: Vector2i = Vector2i(4, 5)
+var player_currency: int = 12
+
 
 func _ready() -> void:
 	shop_panel.module_selected.connect(on_module_selected)
@@ -25,14 +30,17 @@ func _process(delta: float) -> void:
 func _input(event: InputEvent):
 	
 	if Input.is_action_just_pressed("left_click"):
-		var mouse_position = get_global_mouse_position()
-		var tile = tile_map.local_to_map(mouse_position)
+		var mouse_position: Vector2 = get_global_mouse_position()
+		var tile_coords: Vector2i = tile_map.local_to_map(mouse_position)
 		
 		if selected_module != null:
-			var base_cell = base_tile_map.get_cell_tile_data(tile)
+			var base_cell: TileData = base_tile_map.get_cell_tile_data(tile_coords)
 			if base_cell != null:
-				print("Clicked tile: ", tile)
-				tile_map.set_cell(tile, selected_module.source_id, selected_module.atlas_coords)
+				if !truck_grid.has(tile_coords):
+					tile_map.set_cell(tile_coords, selected_module.source_id, selected_module.atlas_coords)
+					truck_grid[tile_coords] = selected_module
+				else:
+					print("Slot already occupied!")
 
 	if event is InputEventMouse:
 		if selected_module != null:

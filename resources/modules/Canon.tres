@@ -7,3 +7,4 @@ script = ExtResource("1_3366n")
 name = "Canon"
 source_id = 0
 atlas_coords = Vector2i(7, 4)
+cost = 5

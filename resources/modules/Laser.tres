@@ -6,4 +6,5 @@
 script = ExtResource("1_pqdbw")
 name = "Laser"
 source_id = 0
-atlas_coords = Vector2i(10, 5)
+atlas_coords = Vector2i(10, 4)
+cost = 5
