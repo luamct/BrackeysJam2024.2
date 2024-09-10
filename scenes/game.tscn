@@ -36,7 +36,7 @@ tile_set = ExtResource("3_q028f")
 
 [node name="ModulesTileMapLayer" type="TileMapLayer" parent="."]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAAAAAAAAAAJAAUAAAAAAAMAAAADAAQAAAABAAEAAAAFAAUAAAACAAEAAAABAAQAAAACAAMAAAAIAAMAAAADAAQAAAAEAAEAAAABAAIAAAAEAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAAAAAAAJAAUAAAAAAAMAAAADAAQAAAABAAEAAAAFAAUAAAACAAEAAAABAAQAAAACAAMAAAAIAAMAAAA=")
 tile_set = ExtResource("3_q028f")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

@@ -15,6 +15,7 @@ script = ExtResource("1_ac08i")
 available_modules = Array[ExtResource("2_jokcm")]([ExtResource("3_wqf85"), ExtResource("5_ic7lp"), ExtResource("4_pq5qo")])
 
 [node name="ModulesContainer" type="PanelContainer" parent="."]
+layout_mode = 0
 offset_left = 66.0
 offset_top = 79.0
 offset_right = 198.0
