@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://dm3igb3h34frm"]
+[gd_scene load_steps=15 format=4 uid="uid://dm3igb3h34frm"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_nslgc"]
 [ext_resource type="PackedScene" uid="uid://cckyy7pvonvg7" path="res://scenes/vehicle.tscn" id="1_xem0p"]
@@ -17,6 +17,42 @@ region = Rect2(224, 128, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s3xmq"]
 atlas = SubResource("AtlasTexture_h02md")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r1ri6"]
+atlas = ExtResource("1_y7qrs")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qltgt"]
+atlas = ExtResource("1_y7qrs")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8kxj"]
+atlas = ExtResource("1_y7qrs")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ssct"]
+atlas = ExtResource("1_y7qrs")
+region = Rect2(256, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kiapa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r1ri6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qltgt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8kxj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ssct")
+}],
+"loop": true,
+"name": &"default",
+"speed": 9.0
+}]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_nslgc")
@@ -74,3 +110,8 @@ text = "?"
 visible = false
 modulate = Color(1, 1, 1, 0.603922)
 texture = SubResource("AtlasTexture_s3xmq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-48, 40)
+sprite_frames = SubResource("SpriteFrames_kiapa")
+frame_progress = 0.511507
