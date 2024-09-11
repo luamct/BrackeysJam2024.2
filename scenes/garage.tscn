@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://dm3igb3h34frm"]
+[gd_scene load_steps=17 format=4 uid="uid://dm3igb3h34frm"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_w1bvq"]
 [ext_resource type="PackedScene" uid="uid://cckyy7pvonvg7" path="res://scenes/old_vehicle.tscn" id="2_goglh"]
@@ -10,11 +10,15 @@
 [ext_resource type="Resource" uid="uid://cg81n10axhb5u" path="res://resources/modules/force_field.tres" id="8_v2u38"]
 [ext_resource type="Resource" uid="uid://b7pl8mkhv5sww" path="res://resources/modules/nos.tres" id="9_nfequ"]
 [ext_resource type="Texture2D" uid="uid://dri4jwnemntk6" path="res://assets/coin.png" id="10_ayiru"]
+[ext_resource type="FontFile" uid="uid://ccmlo17b67pvu" path="res://assets/DigitalStrip2BB_Bold.otf" id="11_3mnvu"]
 [ext_resource type="Texture2D" uid="uid://c0obnotrichpa" path="res://assets/tileset_terrain.png" id="11_ni5w0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qxvbi"]
 atlas = ExtResource("10_ayiru")
 region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1xquc"]
+font = ExtResource("11_3mnvu")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h02md"]
 atlas = ExtResource("11_ni5w0")
@@ -100,6 +104,7 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "?"
+label_settings = SubResource("LabelSettings_1xquc")
 
 [node name="DoneButton" type="Button" parent="CanvasLayer"]
 anchors_preset = 2
