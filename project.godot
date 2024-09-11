@@ -25,6 +25,10 @@ VehicleGrid="*res://scripts/vehicle_grid.gd"
 window/size/viewport_width=1280
 window/size/viewport_height=720
 
+[gui]
+
+theme/custom="res://assets/main_theme.tres"
+
 [input]
 
 left_click={

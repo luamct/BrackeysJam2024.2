@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://ccmlo17b67pvu"
-path="res://.godot/imported/DigitalStrip2BB_Bold.otf-e0792818d80d7e5ccc38c8cb74a56280.fontdata"
+uid="uid://cw4dcxxxskcud"
+path="res://.godot/imported/DigitalStrip2BB_Italic.otf-f1ab9046734406e8febe01d806095def.fontdata"
 
 [deps]
 
-source_file="res://assets/DigitalStrip2BB_Bold.otf"
-dest_files=["res://.godot/imported/DigitalStrip2BB_Bold.otf-e0792818d80d7e5ccc38c8cb74a56280.fontdata"]
+source_file="res://assets/fonts/DigitalStrip2BB_Italic.otf"
+dest_files=["res://.godot/imported/DigitalStrip2BB_Italic.otf-f1ab9046734406e8febe01d806095def.fontdata"]
 
 [params]
 
