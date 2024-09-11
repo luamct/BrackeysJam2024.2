@@ -1,7 +1,7 @@
 class_name Game
 extends Node2D
 
-const source_id = 1
+const SOURCE_ID = 0
 const TILESET = preload("res://resources/Tileset.tres")
 const level1_scene: PackedScene = preload("res://scenes/level_1.tscn")
 
@@ -14,7 +14,6 @@ const level1_scene: PackedScene = preload("res://scenes/level_1.tscn")
 
 # Game mutable state
 var selected_module: ModuleResource = null
-var truck_grid: Dictionary
 var truck_size: Vector2i = Vector2i(4, 5)
 var player_currency: int = 12
 
@@ -40,10 +39,10 @@ func _input(event: InputEvent):
 		if selected_module != null:
 			var base_cell: TileData = base_tile_map.get_cell_tile_data(tile_coords)
 			if base_cell != null:
-				if !truck_grid.has(tile_coords):
+				if !VehicleGrid.grid.has(tile_coords):
 					if player_currency >= selected_module.cost:
-						tile_map.set_cell(tile_coords, selected_module.source_id, selected_module.atlas_coords)
-						truck_grid[tile_coords] = selected_module
+						tile_map.set_cell(tile_coords, SOURCE_ID, selected_module.atlas_coords)
+						VehicleGrid.grid[tile_coords] = selected_module
 
 						player_currency -= selected_module.cost
 						currency_label.text = str(player_currency)
@@ -61,7 +60,7 @@ func _input(event: InputEvent):
 			if base_cell != null:
 				var world_coords: Vector2 = base_tile_map.map_to_local(tile)
 
-				var atlas: TileSetAtlasSource = TILESET.get_source(selected_module.source_id)
+				var atlas: TileSetAtlasSource = TILESET.get_source(SOURCE_ID)
 				shop_module_sprite.texture.atlas.region = atlas.get_tile_texture_region(selected_module.atlas_coords)
 
 				shop_module_sprite.visible = true

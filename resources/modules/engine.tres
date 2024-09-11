@@ -5,6 +5,6 @@
 [resource]
 script = ExtResource("1_plq78")
 name = "Engine"
-source_id = 0
 atlas_coords = Vector2i(5, 0)
-cost = 0
+topdown_atlas_coords = Vector2i(16, 1)
+cost = 2

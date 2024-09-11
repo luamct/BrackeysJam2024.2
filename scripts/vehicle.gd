@@ -1,6 +1,8 @@
 class_name Vehicle
 extends CharacterBody2D
 
+const SOURCE_ID = 0
+
 # Steering and acceleration
 var wheel_base = 50  # Distance from front to rear wheel
 @export var steering_angle = 15  # Amount that front wheel turns, in degrees
@@ -20,6 +22,14 @@ var wheel_base = 50  # Distance from front to rear wheel
 var acceleration = Vector2.ZERO
 var steer_direction
 
+@onready var modules_tile_map: TileMapLayer = $ModulesTileMapLayer
+
+func _ready():
+	print(VehicleGrid.grid)
+	for coords in VehicleGrid.grid:
+		var module: ModuleResource = VehicleGrid.grid[coords]
+		modules_tile_map.set_cell(coords, SOURCE_ID, module.topdown_atlas_coords)
+	
 func _physics_process(delta):
 	acceleration = Vector2.ZERO
 	get_input()
