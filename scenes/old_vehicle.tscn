@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://cckyy7pvonvg7"]
+
+[ext_resource type="Texture2D" uid="uid://dug011t8g3cro" path="res://assets/truck test.png" id="1_po1wh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l3aer"]
+atlas = ExtResource("1_po1wh")
+region = Rect2(0, 0, 160, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ok4q"]
+atlas = ExtResource("1_po1wh")
+region = Rect2(0, 80, 160, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aboai"]
+atlas = ExtResource("1_po1wh")
+region = Rect2(0, 160, 160, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a1g7h"]
+atlas = ExtResource("1_po1wh")
+region = Rect2(0, 240, 160, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bvckc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l3aer")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ok4q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aboai")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a1g7h")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_43v81"]
+size = Vector2(144, 68)
+
+[node name="vehicle" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+position = Vector2(0, 1)
+sprite_frames = SubResource("SpriteFrames_bvckc")
+frame = 3
+frame_progress = 0.3441
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+visible = false
+position = Vector2(2, 6)
+shape = SubResource("RectangleShape2D_43v81")

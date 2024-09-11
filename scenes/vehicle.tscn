@@ -1,57 +1,24 @@
-[gd_scene load_steps=8 format=3 uid="uid://cckyy7pvonvg7"]
+[gd_scene load_steps=5 format=3 uid="uid://y1x11kmtoe4m"]
 
-[ext_resource type="Texture2D" uid="uid://dug011t8g3cro" path="res://assets/truck test.png" id="1_po1wh"]
+[ext_resource type="Texture2D" uid="uid://ddjgd2deboygw" path="res://assets/toddown_tile.png" id="1_geens"]
+[ext_resource type="Script" path="res://scripts/vehicle.gd" id="1_lpewk"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_l3aer"]
-atlas = ExtResource("1_po1wh")
-region = Rect2(0, 0, 160, 80)
+[sub_resource type="AtlasTexture" id="AtlasTexture_qy4w8"]
+atlas = ExtResource("1_geens")
+region = Rect2(176, 0, 80, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2ok4q"]
-atlas = ExtResource("1_po1wh")
-region = Rect2(0, 80, 160, 80)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1502q"]
+radius = 23.0
+height = 80.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_aboai"]
-atlas = ExtResource("1_po1wh")
-region = Rect2(0, 160, 160, 80)
+[node name="Vehicle" type="CharacterBody2D"]
+script = ExtResource("1_lpewk")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_a1g7h"]
-atlas = ExtResource("1_po1wh")
-region = Rect2(0, 240, 160, 80)
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_qy4w8")
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_bvckc"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_l3aer")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2ok4q")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_aboai")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_a1g7h")
-}],
-"loop": true,
-"name": &"default",
-"speed": 8.0
-}]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_1502q")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_43v81"]
-size = Vector2(144, 68)
-
-[node name="vehicle" type="Node2D"]
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
-position = Vector2(0, 1)
-sprite_frames = SubResource("SpriteFrames_bvckc")
-frame = 3
-frame_progress = 0.3441
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-visible = false
-position = Vector2(2, 6)
-shape = SubResource("RectangleShape2D_43v81")
+[node name="Camera2D" type="Camera2D" parent="."]

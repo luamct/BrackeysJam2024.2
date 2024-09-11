@@ -3,12 +3,14 @@ extends Node2D
 
 const source_id = 1
 const TILESET = preload("res://resources/Tileset.tres")
+const level1_scene: PackedScene = preload("res://scenes/level_1.tscn")
 
 @onready var tile_map: TileMapLayer = $ModulesTileMapLayer
 @onready var base_tile_map: TileMapLayer = $BaseTileMapLayer
 @onready var shop_panel: ShopPanel = %ShopPanel
 @onready var shop_module_sprite: Sprite2D = $ShopModuleSprite
 @onready var currency_label: Label = %CurrencyLabel
+@onready var done_button: Button = $CanvasLayer/DoneButton
 
 # Game mutable state
 var selected_module: ModuleResource = null
@@ -20,7 +22,11 @@ var player_currency: int = 12
 func _ready() -> void:
 	shop_panel.module_selected.connect(on_module_selected)
 	currency_label.text = str(player_currency)
+	done_button.pressed.connect(on_done_button_pressed)
 
+func on_done_button_pressed():
+	get_tree().change_scene_to_packed(level1_scene)
+	
 func on_module_selected(module: ModuleResource):
 	print(module.name)
 	selected_module = module

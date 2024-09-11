@@ -1,10 +1,10 @@
-[gd_resource type="Resource" script_class="ModuleResource" load_steps=2 format=3 uid="uid://b7cpom62jb26h"]
+[gd_resource type="Resource" script_class="ModuleResource" load_steps=2 format=3 uid="uid://cpry4cqiwpxx6"]
 
 [ext_resource type="Script" path="res://scripts/module_resource.gd" id="1_plq78"]
 
 [resource]
 script = ExtResource("1_plq78")
-name = ""
+name = "Engine"
 source_id = 0
 atlas_coords = Vector2i(5, 0)
 cost = 0

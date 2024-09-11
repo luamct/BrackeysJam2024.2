@@ -1,10 +1,10 @@
-[gd_resource type="Resource" script_class="ModuleResource" load_steps=2 format=3 uid="uid://bq8onrb1gvaw4"]
+[gd_resource type="Resource" script_class="ModuleResource" load_steps=2 format=3 uid="uid://cg81n10axhb5u"]
 
 [ext_resource type="Script" path="res://scripts/module_resource.gd" id="1_kbrd3"]
 
 [resource]
 script = ExtResource("1_kbrd3")
-name = ""
+name = "ForceField"
 source_id = 0
 atlas_coords = Vector2i(7, 0)
 cost = 0
