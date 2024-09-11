@@ -22,8 +22,12 @@ VehicleGrid="*res://scripts/vehicle_grid.gd"
 
 [display]
 
-window/size/viewport_width=1280
-window/size/viewport_height=720
+window/size/viewport_width=426
+window/size/viewport_height=240
+window/size/window_width_override=1280
+window/size/window_height_override=720
+window/energy_saving/keep_screen_on=false
+window/stretch/mode="viewport"
 
 [input]
 

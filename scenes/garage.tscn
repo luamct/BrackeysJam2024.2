@@ -28,11 +28,11 @@ region = Rect2(224, 128, 32, 32)
 atlas = SubResource("AtlasTexture_h02md")
 
 [node name="Garage" type="Node2D"]
+position = Vector2(197, 88)
 script = ExtResource("1_w1bvq")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(16, 32)
-zoom = Vector2(3, 3)
 
 [node name="vehicle" parent="Camera2D" instance=ExtResource("2_goglh")]
 visible = false
@@ -53,10 +53,10 @@ tile_set = ExtResource("3_kwkrj")
 unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 0
-offset_left = 60.0
-offset_top = 68.0
-offset_right = 192.0
-offset_bottom = 200.0
+offset_left = 15.0
+offset_top = 12.0
+offset_right = 147.0
+offset_bottom = 144.0
 script = ExtResource("4_6jia3")
 available_modules = Array[ExtResource("5_gi02f")]([ExtResource("6_8hdd4"), ExtResource("7_7x40w"), ExtResource("8_v2u38"), ExtResource("9_nfequ")])
 
@@ -71,19 +71,20 @@ columns = 2
 
 [node name="DescriptionContainer" type="PanelContainer" parent="CanvasLayer/ShopPanel"]
 layout_mode = 2
-offset_top = 156.0
-offset_right = 132.0
-offset_bottom = 288.0
+offset_left = 28.0
+offset_top = 143.0
+offset_right = 147.0
+offset_bottom = 216.0
 
 [node name="DescriptionLabel" type="Label" parent="CanvasLayer/ShopPanel/DescriptionContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 
 [node name="CurrencyContainer" type="PanelContainer" parent="CanvasLayer"]
-offset_left = 60.0
-offset_top = 383.0
-offset_right = 125.0
-offset_bottom = 423.0
+offset_left = 169.0
+offset_top = 12.0
+offset_right = 234.0
+offset_bottom = 52.0
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/CurrencyContainer"]
 layout_mode = 2
@@ -110,10 +111,10 @@ label_settings = SubResource("LabelSettings_1xquc")
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 60.0
-offset_top = -82.0
-offset_right = 129.0
-offset_bottom = -40.0
+offset_left = 333.0
+offset_top = -59.0
+offset_right = 402.0
+offset_bottom = -17.0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 24
 text = "Done"
