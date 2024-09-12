@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ModuleResource" load_steps=2 format=3 uid="uid://dbv667ul20ccj"]
+
+[ext_resource type="Script" path="res://scripts/module_resource.gd" id="1_p5t7u"]
+
+[resource]
+script = ExtResource("1_p5t7u")
+name = "MachineGun"
+atlas_coords = Vector2i(1, 1)
+topdown_atlas_coords = Vector2i(17, 0)
+cost = 3

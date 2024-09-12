@@ -2,6 +2,7 @@ class_name Vehicle
 extends CharacterBody2D
 
 const SOURCE_ID = 0
+const MACHINE_GUN_SCENE = preload("res://scenes/modules/machine_gun.tscn")
 
 # Steering and acceleration
 var wheel_base = 50  # Distance from front to rear wheel
@@ -23,12 +24,21 @@ var acceleration = Vector2.ZERO
 var steer_direction
 
 @onready var modules_tile_map: TileMapLayer = $ModulesTileMapLayer
+@onready var modules: Node2D = $Modules
 
 func _ready():
 	for coords in VehicleGrid.grid:
 		var module: ModuleResource = VehicleGrid.grid[coords]
 		modules_tile_map.set_cell(coords, SOURCE_ID, module.topdown_atlas_coords)
-	
+		
+		match module.name:
+			"MachineGun":
+				var instance: MachineGun = MACHINE_GUN_SCENE.instantiate()
+				instance.grid_position = coords
+				instance.damage = module.damage
+				instance.fire_rate = module.fire_rate
+				modules.add_child(instance)
+
 func _physics_process(delta):
 	acceleration = Vector2.ZERO
 	get_input()

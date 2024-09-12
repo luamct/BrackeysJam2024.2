@@ -4,6 +4,9 @@ extends Node2D
 var enemies: Array[Enemy]
 
 func _ready():
-	print("EM ready!")
-	enemies.assign(get_children())
-	print(enemies.size())
+	for enemy in get_children():
+		enemy.death.connect(on_enemy_died)
+		enemies.append(enemy)
+
+func on_enemy_died(enemy: Enemy):
+	enemies.erase(enemy)

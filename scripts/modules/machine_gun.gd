@@ -11,7 +11,7 @@ var enemy_manager: EnemyManager
 
 var fire_rate: int = 2  # Shots per second
 var damage: int = 5 # Per shot
-var range: int = 10
+var range: int = 300
 
 static func new(_grid_position: Vector2i, _enemy_manager: EnemyManager) -> MachineGun:
 	var instance: MachineGun = SCENE.instantiate()
@@ -28,23 +28,24 @@ func _ready():
 	enemy_manager = get_tree().get_first_node_in_group("enemy_manager")
 	
 func on_cooldown_timeout():
-	print("Shoot!")
-
 	var target_enemy: Enemy = null
 	var target_distance: float = 10e10
 	
 	for enemy: Enemy in enemy_manager.enemies:
 		var distance: float = enemy.global_position.distance_to(global_position)
-		if distance < target_distance:
+		if distance < target_distance && distance <= range:
 			target_enemy = enemy
 			target_distance = distance
 	
+	if target_enemy == null:
+		return
+
 	var shoot_direction: Vector2 = (target_enemy.global_position - global_position).normalized()
 	var bullet: RigidBody2D = BULLET_SCENE.instantiate()
-	add_child(bullet)
+	bullet.damage = damage
 	bullet.global_rotation = shoot_direction.angle() + PI*0.5
 	bullet.apply_impulse(shoot_direction * 2000)
-	
-	
+	add_child(bullet)
+
 #func _process(delta):
 	
