@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=4 uid="uid://dm3igb3h34frm"]
+[gd_scene load_steps=20 format=4 uid="uid://dm3igb3h34frm"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_w1bvq"]
 [ext_resource type="PackedScene" uid="uid://cckyy7pvonvg7" path="res://scenes/old_vehicle.tscn" id="2_goglh"]
+[ext_resource type="Texture2D" uid="uid://cvgt346rhhepb" path="res://assets/garagem_bg.png" id="2_pxlus"]
 [ext_resource type="TileSet" uid="uid://dfm6gj16u0smi" path="res://resources/Tileset.tres" id="3_kwkrj"]
 [ext_resource type="Script" path="res://scripts/shop_panel.gd" id="4_6jia3"]
 [ext_resource type="Script" path="res://scripts/module_resource.gd" id="5_gi02f"]
@@ -12,6 +13,21 @@
 [ext_resource type="Texture2D" uid="uid://dri4jwnemntk6" path="res://assets/coin.png" id="10_ayiru"]
 [ext_resource type="FontFile" uid="uid://ccmlo17b67pvu" path="res://assets/fonts/DigitalStrip2BB_Bold.otf" id="11_3mnvu"]
 [ext_resource type="Texture2D" uid="uid://c0obnotrichpa" path="res://assets/tileset_terrain.png" id="11_ni5w0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_601ph"]
+atlas = ExtResource("2_pxlus")
+region = Rect2(0, 0, 426, 240)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t7460"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_601ph")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qxvbi"]
 atlas = ExtResource("10_ayiru")
@@ -28,11 +44,12 @@ region = Rect2(224, 128, 32, 32)
 atlas = SubResource("AtlasTexture_h02md")
 
 [node name="Garage" type="Node2D"]
-position = Vector2(197, 88)
 script = ExtResource("1_w1bvq")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(16, 32)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Camera2D"]
+sprite_frames = SubResource("SpriteFrames_t7460")
 
 [node name="vehicle" parent="Camera2D" instance=ExtResource("2_goglh")]
 visible = false
