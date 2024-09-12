@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://dm3igb3h34frm"]
+[gd_scene load_steps=26 format=4 uid="uid://dm3igb3h34frm"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_w1bvq"]
 [ext_resource type="PackedScene" uid="uid://cckyy7pvonvg7" path="res://scenes/old_vehicle.tscn" id="2_goglh"]
@@ -12,7 +12,12 @@
 [ext_resource type="Resource" uid="uid://b7pl8mkhv5sww" path="res://resources/modules/nos.tres" id="9_nfequ"]
 [ext_resource type="Texture2D" uid="uid://dri4jwnemntk6" path="res://assets/coin.png" id="10_ayiru"]
 [ext_resource type="FontFile" uid="uid://ccmlo17b67pvu" path="res://assets/fonts/DigitalStrip2BB_Bold.otf" id="11_3mnvu"]
+[ext_resource type="Theme" uid="uid://6deanv52hgp1" path="res://assets/garage_panels.tres" id="11_lsrfh"]
 [ext_resource type="Texture2D" uid="uid://c0obnotrichpa" path="res://assets/tileset_terrain.png" id="11_ni5w0"]
+[ext_resource type="Texture2D" uid="uid://cfsyh14fjiu55" path="res://assets/garagem_panels.png" id="12_4wk4u"]
+[ext_resource type="Texture2D" uid="uid://wkc8svp3axmp" path="res://assets/button_done_inactive.png" id="12_vwb4n"]
+[ext_resource type="Texture2D" uid="uid://d4jl77545mv3s" path="res://assets/button_done_click.png" id="13_jlys1"]
+[ext_resource type="Texture2D" uid="uid://bkkjnc326kcmx" path="res://assets/button_done_hover.png" id="14_8e345"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_601ph"]
 atlas = ExtResource("2_pxlus")
@@ -28,6 +33,10 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r5uim"]
+texture = ExtResource("12_4wk4u")
+region_rect = Rect2(114, 11, 73, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qxvbi"]
 atlas = ExtResource("10_ayiru")
@@ -79,13 +88,18 @@ offset_bottom = 144.0
 script = ExtResource("4_6jia3")
 available_modules = Array[ExtResource("5_gi02f")]([ExtResource("6_8hdd4"), ExtResource("7_7x40w"), ExtResource("8_v2u38"), ExtResource("9_nfequ")])
 
-[node name="ModulesContainer" type="PanelContainer" parent="CanvasLayer/ShopPanel"]
+[node name="ModulesContainer" type="Panel" parent="CanvasLayer/ShopPanel"]
 layout_mode = 0
-offset_right = 132.0
-offset_bottom = 132.0
+offset_right = 92.0
+offset_bottom = 140.0
+theme = ExtResource("11_lsrfh")
 
 [node name="GridContainer" type="GridContainer" parent="CanvasLayer/ShopPanel/ModulesContainer"]
 layout_mode = 2
+offset_left = 11.0
+offset_top = 19.0
+offset_right = 65.0
+offset_bottom = 118.0
 columns = 2
 
 [node name="DescriptionContainer" type="PanelContainer" parent="CanvasLayer/ShopPanel"]
@@ -99,14 +113,31 @@ offset_bottom = 216.0
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="CurrencyContainer" type="PanelContainer" parent="CanvasLayer"]
+[node name="DoneButton" type="TextureButton" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 307.0
+offset_top = -70.0
+offset_right = 407.0
+offset_bottom = -14.0
+grow_vertical = 0
+texture_normal = ExtResource("12_vwb4n")
+texture_pressed = ExtResource("13_jlys1")
+texture_hover = ExtResource("14_8e345")
+
+[node name="CurrencyContainer" type="Panel" parent="CanvasLayer"]
 offset_left = 169.0
 offset_top = 12.0
 offset_right = 234.0
 offset_bottom = 52.0
+theme = ExtResource("11_lsrfh")
+theme_override_styles/panel = SubResource("StyleBoxTexture_r5uim")
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/CurrencyContainer"]
 layout_mode = 2
+offset_right = 65.0
+offset_bottom = 40.0
 theme_override_constants/margin_left = 0
 theme_override_constants/margin_right = 10
 
@@ -116,7 +147,6 @@ layout_mode = 2
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/CurrencyContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 texture = SubResource("AtlasTexture_qxvbi")
-expand_mode = 2
 stretch_mode = 4
 
 [node name="CurrencyLabel" type="Label" parent="CanvasLayer/CurrencyContainer/MarginContainer/VBoxContainer"]
@@ -126,19 +156,9 @@ theme_override_font_sizes/font_size = 24
 text = "?"
 label_settings = SubResource("LabelSettings_1xquc")
 
-[node name="DoneButton" type="Button" parent="CanvasLayer"]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 333.0
-offset_top = -59.0
-offset_right = 402.0
-offset_bottom = -17.0
-grow_vertical = 0
-theme_override_font_sizes/font_size = 24
-text = "Done"
-
 [node name="ShopModuleSprite" type="Sprite2D" parent="."]
 visible = false
 modulate = Color(1, 1, 1, 0.603922)
 texture = SubResource("AtlasTexture_s3xmq")
+
+[connection signal="pressed" from="CanvasLayer/DoneButton" to="." method="_on_done_button_pressed"]
