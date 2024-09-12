@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=4 uid="uid://y1x11kmtoe4m"]
+[gd_scene load_steps=8 format=4 uid="uid://y1x11kmtoe4m"]
 
 [ext_resource type="Texture2D" uid="uid://ddjgd2deboygw" path="res://assets/toddown_tile.png" id="1_geens"]
 [ext_resource type="Script" path="res://scripts/vehicle.gd" id="1_lpewk"]
+[ext_resource type="PackedScene" uid="uid://b53vggxv64dpa" path="res://scenes/modules/machine_gun.tscn" id="3_etxqv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qy4w8"]
 atlas = ExtResource("1_geens")
@@ -101,3 +102,7 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_1502q")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Modules" type="Node2D" parent="."]
+
+[node name="MachineGun" parent="Modules" instance=ExtResource("3_etxqv")]

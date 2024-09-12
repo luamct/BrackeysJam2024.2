@@ -25,7 +25,6 @@ var steer_direction
 @onready var modules_tile_map: TileMapLayer = $ModulesTileMapLayer
 
 func _ready():
-	print(VehicleGrid.grid)
 	for coords in VehicleGrid.grid:
 		var module: ModuleResource = VehicleGrid.grid[coords]
 		modules_tile_map.set_cell(coords, SOURCE_ID, module.topdown_atlas_coords)

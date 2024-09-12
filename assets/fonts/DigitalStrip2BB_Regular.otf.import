@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://3hanlcnpeqkl"
-path="res://.godot/imported/DigitalStrip2BB_Regular.otf-e03885b99c8d14801f489a6e80379520.fontdata"
+path="res://.godot/imported/DigitalStrip2BB_Regular.otf-fc8ea4c1d8a06d512bb9ad19b90e34f2.fontdata"
 
 [deps]
 
-source_file="res://assets/DigitalStrip2BB_Regular.otf"
-dest_files=["res://.godot/imported/DigitalStrip2BB_Regular.otf-e03885b99c8d14801f489a6e80379520.fontdata"]
+source_file="res://assets/fonts/DigitalStrip2BB_Regular.otf"
+dest_files=["res://.godot/imported/DigitalStrip2BB_Regular.otf-fc8ea4c1d8a06d512bb9ad19b90e34f2.fontdata"]
 
 [params]
 

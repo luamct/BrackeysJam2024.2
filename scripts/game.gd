@@ -31,7 +31,6 @@ func on_module_selected(module: ModuleResource):
 	selected_module = module
 	
 func _input(event: InputEvent):
-
 	if Input.is_action_just_pressed("left_click"):
 		var mouse_position: Vector2 = get_global_mouse_position()
 		var tile_coords: Vector2i = tile_map.local_to_map(mouse_position)
