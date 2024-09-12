@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=4 uid="uid://kygcv1vlqjgb"]
+[gd_scene load_steps=7 format=4 uid="uid://kygcv1vlqjgb"]
 
 [ext_resource type="Texture2D" uid="uid://ddjgd2deboygw" path="res://assets/toddown_tile.png" id="1_mnhdj"]
 [ext_resource type="PackedScene" uid="uid://y1x11kmtoe4m" path="res://scenes/vehicle.tscn" id="2_bh4r5"]
+[ext_resource type="Script" path="res://scripts/enemy_manager.gd" id="3_fb400"]
+[ext_resource type="PackedScene" uid="uid://cyhc5v8pve7o7" path="res://scenes/enemy.tscn" id="4_48m48"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pvenb"]
 texture = ExtResource("1_mnhdj")
@@ -83,3 +85,12 @@ tile_set = SubResource("TileSet_tfgec")
 engine_power = 1400
 braking = -800
 max_speed_reverse = 500
+
+[node name="EnemyManager" type="Node2D" parent="." groups=["enemy_manager"]]
+script = ExtResource("3_fb400")
+
+[node name="Enemy" parent="EnemyManager" instance=ExtResource("4_48m48")]
+position = Vector2(227, -102)
+
+[node name="Enemy2" parent="EnemyManager" instance=ExtResource("4_48m48")]
+position = Vector2(66, -136)
