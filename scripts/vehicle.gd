@@ -33,10 +33,8 @@ func _ready():
 		
 		match module.name:
 			"MachineGun":
-				var instance: MachineGun = MACHINE_GUN_SCENE.instantiate()
-				instance.grid_position = coords
-				instance.damage = module.damage
-				instance.fire_rate = module.fire_rate
+				var local_position = modules_tile_map.map_to_local(coords) + modules_tile_map.position
+				var instance = MachineGun.create(module, local_position)
 				modules.add_child(instance)
 
 func _physics_process(delta):

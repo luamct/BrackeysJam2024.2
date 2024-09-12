@@ -23,6 +23,6 @@ func on_body_entered(body: Node):
 func die():
 	animated_sprite_2d.play("dead")
 	death.emit(self)
-	area.monitorable = false
-	area.monitoring = false
+	area.set_deferred("monitorable", false)
+	area.set_deferred("monitoring", false)
 	#queue_free()

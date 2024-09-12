@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://dm3igb3h34frm"]
+[gd_scene load_steps=27 format=4 uid="uid://dm3igb3h34frm"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_w1bvq"]
 [ext_resource type="PackedScene" uid="uid://cckyy7pvonvg7" path="res://scenes/old_vehicle.tscn" id="2_goglh"]
@@ -12,8 +12,8 @@
 [ext_resource type="Resource" uid="uid://b7pl8mkhv5sww" path="res://resources/modules/nos.tres" id="9_nfequ"]
 [ext_resource type="Texture2D" uid="uid://dri4jwnemntk6" path="res://assets/coin.png" id="10_ayiru"]
 [ext_resource type="FontFile" uid="uid://ccmlo17b67pvu" path="res://assets/fonts/DigitalStrip2BB_Bold.otf" id="11_3mnvu"]
-[ext_resource type="Theme" uid="uid://6deanv52hgp1" path="res://assets/garage_panels.tres" id="11_lsrfh"]
 [ext_resource type="Resource" uid="uid://dbv667ul20ccj" path="res://resources/modules/machine_gun.tres" id="11_f0luf"]
+[ext_resource type="Theme" uid="uid://cfefdawkscps1" path="res://assets/garage_panels.tres" id="11_lsrfh"]
 [ext_resource type="Texture2D" uid="uid://c0obnotrichpa" path="res://assets/tileset_terrain.png" id="11_ni5w0"]
 [ext_resource type="Texture2D" uid="uid://cfsyh14fjiu55" path="res://assets/garagem_panels.png" id="12_4wk4u"]
 [ext_resource type="Texture2D" uid="uid://wkc8svp3axmp" path="res://assets/button_done_inactive.png" id="12_vwb4n"]

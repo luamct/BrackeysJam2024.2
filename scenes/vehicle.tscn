@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=4 uid="uid://y1x11kmtoe4m"]
+[gd_scene load_steps=6 format=4 uid="uid://y1x11kmtoe4m"]
 
 [ext_resource type="Texture2D" uid="uid://ddjgd2deboygw" path="res://assets/toddown_tile.png" id="1_geens"]
 [ext_resource type="Script" path="res://scripts/vehicle.gd" id="1_lpewk"]
-[ext_resource type="PackedScene" uid="uid://b53vggxv64dpa" path="res://scenes/modules/machine_gun.tscn" id="3_etxqv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8lg4g"]
 texture = ExtResource("1_geens")
@@ -139,7 +138,9 @@ shape = SubResource("CapsuleShape2D_1502q")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
+position_smoothing_speed = 10.0
 
 [node name="Modules" type="Node2D" parent="."]
 
-[node name="MachineGun" parent="Modules" instance=ExtResource("3_etxqv")]
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(-4, -4)
