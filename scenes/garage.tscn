@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dri4jwnemntk6" path="res://assets/coin.png" id="10_ayiru"]
 [ext_resource type="FontFile" uid="uid://ccmlo17b67pvu" path="res://assets/fonts/DigitalStrip2BB_Bold.otf" id="11_3mnvu"]
 [ext_resource type="Theme" uid="uid://6deanv52hgp1" path="res://assets/garage_panels.tres" id="11_lsrfh"]
+[ext_resource type="Resource" uid="uid://dbv667ul20ccj" path="res://resources/modules/machine_gun.tres" id="11_f0luf"]
 [ext_resource type="Texture2D" uid="uid://c0obnotrichpa" path="res://assets/tileset_terrain.png" id="11_ni5w0"]
 [ext_resource type="Texture2D" uid="uid://cfsyh14fjiu55" path="res://assets/garagem_panels.png" id="12_4wk4u"]
 [ext_resource type="Texture2D" uid="uid://wkc8svp3axmp" path="res://assets/button_done_inactive.png" id="12_vwb4n"]
@@ -86,7 +87,7 @@ offset_top = 12.0
 offset_right = 147.0
 offset_bottom = 144.0
 script = ExtResource("4_6jia3")
-available_modules = Array[ExtResource("5_gi02f")]([ExtResource("6_8hdd4"), ExtResource("7_7x40w"), ExtResource("8_v2u38"), ExtResource("9_nfequ")])
+available_modules = Array[ExtResource("5_gi02f")]([ExtResource("6_8hdd4"), ExtResource("7_7x40w"), ExtResource("8_v2u38"), ExtResource("9_nfequ"), ExtResource("11_f0luf")])
 
 [node name="ModulesContainer" type="Panel" parent="CanvasLayer/ShopPanel"]
 layout_mode = 0

@@ -122,7 +122,7 @@ tile_map_data = PackedByteArray("AAD8//z/AAABAAAAAAD8//7/AAABAAIAAAD9//z/AAACAAA
 tile_set = SubResource("TileSet_tfgec")
 
 [node name="Vehicle" parent="." instance=ExtResource("2_bh4r5")]
-engine_power = 1400
+engine_power = 900
 braking = -800
 max_speed_reverse = 500
 

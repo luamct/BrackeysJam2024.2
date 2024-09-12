@@ -78,9 +78,8 @@ script = ExtResource("1_tm5wa")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2u5pm")
-animation = &"dead"
-frame = 1
-frame_progress = 1.0
+animation = &"idle"
+autoplay = "idle"
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 2

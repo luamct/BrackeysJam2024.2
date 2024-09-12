@@ -9,6 +9,7 @@ const BULLET_SCENE: PackedScene = preload("res://scenes/bullet.tscn")
 var grid_position: Vector2i
 var enemy_manager: EnemyManager
 
+var bullet_impulse: int = 1000
 var fire_rate: int = 2  # Shots per second
 var damage: int = 5 # Per shot
 var range: int = 300
@@ -43,9 +44,6 @@ func on_cooldown_timeout():
 	var shoot_direction: Vector2 = (target_enemy.global_position - global_position).normalized()
 	var bullet: RigidBody2D = BULLET_SCENE.instantiate()
 	bullet.damage = damage
-	bullet.global_rotation = shoot_direction.angle() + PI*0.5
-	bullet.apply_impulse(shoot_direction * 2000)
+	#bullet.global_rotation = shoot_direction.angle() + PI*0.5
+	bullet.apply_impulse(shoot_direction * bullet_impulse)
 	add_child(bullet)
-
-#func _process(delta):
-	

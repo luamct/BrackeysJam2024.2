@@ -1,11 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://mom6c5xprqbn"]
 
-[ext_resource type="Texture2D" uid="uid://5csm1wtcv0f" path="res://assets/laserRed03.png" id="1_ai54y"]
 [ext_resource type="Script" path="res://scripts/bullet.gd" id="1_jvhto"]
+[ext_resource type="Texture2D" uid="uid://dri4jwnemntk6" path="res://assets/coin.png" id="2_gcmqw"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8aja5"]
-radius = 2.0
-height = 12.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_n7tiu"]
+radius = 2.23607
 
 [node name="Bullet" type="RigidBody2D"]
 collision_layer = 4
@@ -17,10 +16,12 @@ script = ExtResource("1_jvhto")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 0, 1)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_ai54y")
+texture = ExtResource("2_gcmqw")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_8aja5")
+shape = SubResource("CircleShape2D_n7tiu")
 
 [node name="AutoDestroyTimer" type="Timer" parent="."]
 one_shot = true

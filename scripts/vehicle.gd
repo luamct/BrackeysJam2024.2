@@ -6,19 +6,19 @@ const MACHINE_GUN_SCENE = preload("res://scenes/modules/machine_gun.tscn")
 
 # Steering and acceleration
 var wheel_base = 50  # Distance from front to rear wheel
-@export var steering_angle = 15  # Amount that front wheel turns, in degrees
-@export var engine_power = 900  # Forward acceleration force.
+@export var steering_angle: int  # Amount that front wheel turns, in degrees
+@export var engine_power: int  # Forward acceleration force.
 
 # Deccelaration
-@export var friction = -55 # Resistance from the ground
-@export var drag = -0.06 # Resistance from the air
-@export var braking = -450
-@export var max_speed_reverse = 250
+@export var friction: int # Resistance from the ground
+@export var drag: float # Resistance from the air
+@export var braking: int
+@export var max_speed_reverse: int
 
 # Drifting
-@export var slip_speed = 400  # Speed where traction is reduced
-@export var traction_fast = 2.5 # High-speed traction
-@export var traction_slow = 10  # Low-speed traction
+@export var slip_speed: int  # Speed where traction is reduced
+@export var traction_fast: float # High-speed traction
+@export var traction_slow: float  # Low-speed traction
 
 var acceleration = Vector2.ZERO
 var steer_direction

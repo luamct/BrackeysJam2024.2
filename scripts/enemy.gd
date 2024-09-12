@@ -11,17 +11,18 @@ signal death(enemy: Enemy)
 
 func _ready():
 	area.body_entered.connect(on_body_entered)
-	
+
 func on_body_entered(body: Node):
-	print("Enemy was hit: ", body.name)
 	if body is Bullet:
 		health -= body.damage
 		body.queue_free()
 		
 		if health <= 0:
 			die()
-		
+
 func die():
 	animated_sprite_2d.play("dead")
 	death.emit(self)
-	queue_free()
+	area.monitorable = false
+	area.monitoring = false
+	#queue_free()
