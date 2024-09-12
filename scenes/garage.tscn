@@ -44,6 +44,7 @@ region = Rect2(224, 128, 32, 32)
 atlas = SubResource("AtlasTexture_h02md")
 
 [node name="Garage" type="Node2D"]
+position = Vector2(213, 120)
 script = ExtResource("1_w1bvq")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -62,6 +63,7 @@ tile_set = ExtResource("3_kwkrj")
 
 [node name="ModulesTileMapLayer" type="TileMapLayer" parent="."]
 y_sort_enabled = true
+position = Vector2(0, -24)
 tile_set = ExtResource("3_kwkrj")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

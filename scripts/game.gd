@@ -32,7 +32,7 @@ func on_module_selected(module: ModuleResource):
 	
 func _input(event: InputEvent):
 	if Input.is_action_just_pressed("left_click"):
-		var mouse_position: Vector2 = get_global_mouse_position()
+		var mouse_position: Vector2 = tile_map.to_local(get_global_mouse_position())
 		var tile_coords: Vector2i = tile_map.local_to_map(mouse_position)
 
 		if selected_module != null:
@@ -52,12 +52,12 @@ func _input(event: InputEvent):
 
 	if event is InputEventMouse:
 		if selected_module != null:
-			var mouse_position = get_global_mouse_position()
+			var mouse_position = tile_map.to_local(get_global_mouse_position())
 			var tile = tile_map.local_to_map(mouse_position)
 			 
 			var base_cell = base_tile_map.get_cell_tile_data(tile)
 			if base_cell != null:
-				var world_coords: Vector2 = base_tile_map.map_to_local(tile)
+				var world_coords: Vector2 = base_tile_map.to_global(base_tile_map.map_to_local(tile))
 
 				var atlas: TileSetAtlasSource = TILESET.get_source(SOURCE_ID)
 				shop_module_sprite.texture.atlas.region = atlas.get_tile_texture_region(selected_module.atlas_coords)
