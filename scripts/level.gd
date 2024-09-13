@@ -48,6 +48,9 @@ func _ready():
 func on_body_entered_goal_area(body: Node2D):
 	if body is Vehicle:
 		vehicle.disable_controls()
+		Globals.currency += level_config.reward
+		currency_label.text = str(Globals.currency)
+		
 		await get_tree().create_timer(2.0).timeout
 		call_deferred("load_garage_scene")
 
