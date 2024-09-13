@@ -9,4 +9,15 @@ extends Resource
 @export var fire_rate: float
 
 func description() -> String:
-	return "Description for module " + name
+	var desc = ""
+	match name:
+		"MachineGun":
+			desc += "Turret\n"
+			desc += "Damage: " + str(damage) + "\n"
+			desc += "Shoots every " + str(fire_rate) + " s\n"
+			desc += "Cost: " + str(cost) + "\n"
+
+		_:
+			desc += "TODO"
+
+	return desc
