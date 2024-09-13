@@ -5,6 +5,8 @@
 [node name="Ling" instance=ExtResource("1_d1n5v")]
 health = 3
 speed = 50
+attack_speed = 1.0
+damage = 2
 
 [node name="CollisionShape2D" parent="Area2D" index="0"]
 position = Vector2(1, 0)

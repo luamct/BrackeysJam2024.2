@@ -1,6 +1,8 @@
 class_name Vehicle
 extends CharacterBody2D
 
+signal health_changed(percentage: float)
+
 const SOURCE_ID = 0
 const MACHINE_GUN_SCENE = preload("res://scenes/modules/machine_gun.tscn")
 
@@ -22,6 +24,9 @@ var wheel_base = 50  # Distance from front to rear wheel
 
 var acceleration = Vector2.ZERO
 var steer_direction
+
+var max_health = 10
+var health = max_health
 
 @onready var modules_tile_map: TileMapLayer = $ModulesTileMapLayer
 @onready var modules: Node2D = $Modules
@@ -77,3 +82,15 @@ func calculate_steering(delta):
 	if d < 0:
 		velocity = -new_heading * min(velocity.length(), max_speed_reverse)
 	rotation = new_heading.angle()
+
+func take_damage(damage: int):
+	health -= damage
+	health_changed.emit(float(health)/max_health)
+	
+	if health <= 0:
+		die()
+		
+func die():
+	# Play death animation
+	# Show retry prompt
+	get_tree().quit()
