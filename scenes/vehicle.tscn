@@ -111,7 +111,7 @@ sources/0 = SubResource("TileSetAtlasSource_8lg4g")
 radius = 15.0
 height = 46.0
 
-[node name="Vehicle" type="CharacterBody2D"]
+[node name="Vehicle" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_lpewk")
 steering_angle = 15
 engine_power = 200

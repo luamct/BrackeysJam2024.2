@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://ddjgd2deboygw" path="res://assets/toddown_tile.png" id="1_mnhdj"]
 [ext_resource type="PackedScene" uid="uid://y1x11kmtoe4m" path="res://scenes/vehicle.tscn" id="2_bh4r5"]
 [ext_resource type="Script" path="res://scripts/enemy_manager.gd" id="3_fb400"]
-[ext_resource type="PackedScene" uid="uid://bip7coeyjp14v" path="res://scenes/enemy.tscn" id="4_48m48"]
+[ext_resource type="PackedScene" uid="uid://vgjh2msn5asb" path="res://scenes/enemies/ling.tscn" id="4_oikfo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pvenb"]
 texture = ExtResource("1_mnhdj")
@@ -128,12 +128,11 @@ max_speed_reverse = 500
 [node name="EnemyManager" type="Node2D" parent="." groups=["enemy_manager"]]
 script = ExtResource("3_fb400")
 
-[node name="Enemy" parent="EnemyManager" instance=ExtResource("4_48m48")]
-position = Vector2(227, -102)
+[node name="Ling" parent="EnemyManager" instance=ExtResource("4_oikfo")]
+position = Vector2(71, -44)
 
-[node name="Enemy2" parent="EnemyManager" instance=ExtResource("4_48m48")]
-position = Vector2(66, -136)
+[node name="Ling2" parent="EnemyManager" instance=ExtResource("4_oikfo")]
+position = Vector2(85, 21)
 
-[node name="Enemy3" parent="EnemyManager" instance=ExtResource("4_48m48")]
-position = Vector2(62, -22)
-rotation = 2.87979
+[node name="Ling3" parent="EnemyManager" instance=ExtResource("4_oikfo")]
+position = Vector2(-21, -147)

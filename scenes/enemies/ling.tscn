@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://vgjh2msn5asb"]
+
+[ext_resource type="PackedScene" uid="uid://bip7coeyjp14v" path="res://scenes/enemies/enemy.tscn" id="1_d1n5v"]
+
+[node name="Ling" instance=ExtResource("1_d1n5v")]
+health = 3
+speed = 50
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(1, 0)
