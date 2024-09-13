@@ -16,6 +16,7 @@ const engagement_distance: int = 300
 
 var player: Vehicle
 var meele_range: bool = false
+var dead: bool = false
 
 func _ready():
 	area.body_entered.connect(on_body_entered)
@@ -40,6 +41,7 @@ func on_body_exited(body: Node):
 		meele_range = false
 
 func die():
+	dead = true
 	sprite.play("dead")
 	death.emit(self)
 	area.set_deferred("monitorable", false)
@@ -47,6 +49,9 @@ func die():
 	#queue_free()
 
 func _process(delta: float) -> void:
+	if dead: 
+		return
+		
 	var distance = position.distance_to(player.position)
 	if meele_range :
 		if attack_cooldown.is_stopped():
