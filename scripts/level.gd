@@ -3,10 +3,10 @@ extends Node2D
 
 const SOURCE_ID = 0
 const SAND_TILE_COORD = Vector2i(0, 0)
-const STORM_TILE_COORD = Vector2i(2, 0)
-const MOUNTAIN_TILE_COORD = Vector2i(4, 0)
-const START_TILE_COORD = Vector2i(6, 0)
-const GOAL_TILE_COORD = Vector2i(8, 0)
+const STORM_TILE_COORD = Vector2i(1, 0)
+const MOUNTAIN_TILE_COORD = Vector2i(2, 0)
+const START_TILE_COORD = Vector2i(3, 0)
+const GOAL_TILE_COORD = Vector2i(4, 0)
 
 const types_to_tiles = {
 	LevelAreaResource.AreaType.SAND: SAND_TILE_COORD,

@@ -45,12 +45,11 @@ func die():
 	death.emit(self)
 	area.set_deferred("monitorable", false)
 	area.set_deferred("monitoring", false)
-	#queue_free()
 
 func _process(delta: float) -> void:
 	if dead: 
 		return
-		
+
 	var distance = position.distance_to(player.position)
 	if meele_range :
 		if attack_cooldown.is_stopped():

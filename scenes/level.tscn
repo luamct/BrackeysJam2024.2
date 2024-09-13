@@ -14,28 +14,25 @@
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c5eaa"]
 texture = ExtResource("4_8bh6c")
+texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
 3:0/0 = 0
 4:0/0 = 0
-5:0/0 = 0
 0:1/0 = 0
 1:1/0 = 0
 2:1/0 = 0
 3:1/0 = 0
 4:1/0 = 0
-5:1/0 = 0
-6:0/0 = 0
-7:0/0 = 0
-8:0/0 = 0
-9:0/0 = 0
-6:1/0 = 0
-7:1/0 = 0
-8:1/0 = 0
-9:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_nnw5m"]
+tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_c5eaa")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_tp0cn"]
