@@ -17,7 +17,7 @@ config/features=PackedStringArray("4.3", "Forward Plus")
 
 [autoload]
 
-VehicleGrid="*res://scripts/vehicle_grid.gd"
+Globals="*res://scripts/globals.gd"
 
 [display]
 

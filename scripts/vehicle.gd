@@ -33,8 +33,8 @@ var health = max_health
 @onready var modules: Node2D = $Modules
 
 func _ready():
-	for coords in VehicleGrid.grid:
-		var module: ModuleResource = VehicleGrid.grid[coords]
+	for coords in Globals.grid:
+		var module: ModuleResource = Globals.grid[coords]
 		modules_tile_map.set_cell(coords, SOURCE_ID, module.topdown_atlas_coords)
 		
 		match module.name:

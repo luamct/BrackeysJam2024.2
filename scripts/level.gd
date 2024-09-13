@@ -19,6 +19,7 @@ const types_to_tiles = {
 @onready var health_bar: ProgressBar = %HealthBar
 @onready var tile_map: TileMapLayer = $TileMapLayer
 @onready var goal_area: Area2D = $GoalArea
+@onready var currency_label: Label = %CurrencyLabel
 @onready var tile_size: int = tile_map.tile_set.tile_size.x
 @onready var garage_scene: PackedScene = load("res://scenes/garage.tscn")
 
@@ -27,6 +28,7 @@ const types_to_tiles = {
 func _ready():
 	vehicle.health_changed.connect(on_health_changed)
 	health_bar.value = 1.0
+	currency_label.text = str(Globals.currency)
 
 	@warning_ignore("integer_division")
 	var half_height = level_config.height/2
@@ -42,7 +44,7 @@ func _ready():
 		starting_x += level_area.length
 
 	goal_area.body_entered.connect(on_body_entered_goal_area)
-	
+
 func on_body_entered_goal_area(body: Node2D):
 	if body is Vehicle:
 		vehicle.disable_controls()

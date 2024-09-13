@@ -17,23 +17,21 @@ const level1_scene: PackedScene = preload("res://scenes/level_1.tscn")
 # Game mutable state
 var selected_module: ModuleResource = null
 var truck_size: Vector2i = Vector2i(4, 5)
-var player_currency: int = 12
+#var player_currency: int = 12
 
 
 func _ready() -> void:
 	shop_panel.module_selected.connect(on_module_selected)
-	currency_label.text = str(player_currency)
+	currency_label.text = str(Globals.currency)
 	currency_skull.play("idle")
 	#done_button.pressed.connect(on_done_button_pressed)
 
 func _on_done_button_pressed() -> void:
 	get_tree().change_scene_to_packed(level1_scene)
 
-	
 func on_module_selected(module: ModuleResource):
-	print(module.name)
 	selected_module = module
-	
+
 func _input(event: InputEvent):
 	if Input.is_action_just_pressed("left_click"):
 		var mouse_position: Vector2 = tile_map.to_local(get_global_mouse_position())
@@ -42,13 +40,13 @@ func _input(event: InputEvent):
 		if selected_module != null:
 			var base_cell: TileData = base_tile_map.get_cell_tile_data(tile_coords)
 			if base_cell != null:
-				if !VehicleGrid.grid.has(tile_coords):
-					if player_currency >= selected_module.cost:
+				if !Globals.grid.has(tile_coords):
+					if Globals.currency >= selected_module.cost:
 						tile_map.set_cell(tile_coords, SOURCE_ID, selected_module.atlas_coords)
-						VehicleGrid.grid[tile_coords] = selected_module
+						Globals.grid[tile_coords] = selected_module
 
-						player_currency -= selected_module.cost
-						currency_label.text = str(player_currency)
+						Globals.currency -= selected_module.cost
+						currency_label.text = str(Globals.currency)
 						currency_skull.play("buy")
 					else: 
 						print("Not enough money!")
@@ -59,7 +57,7 @@ func _input(event: InputEvent):
 		if selected_module != null:
 			var mouse_position = tile_map.to_local(get_global_mouse_position())
 			var tile = tile_map.local_to_map(mouse_position)
-			 
+
 			var base_cell = base_tile_map.get_cell_tile_data(tile)
 			if base_cell != null:
 				var world_coords: Vector2 = base_tile_map.to_global(base_tile_map.map_to_local(tile))
@@ -77,7 +75,6 @@ func _input(event: InputEvent):
 
 #func place_module(module: ModuleResource, position: Vector2i):
 	#pass
-	
 	
 #func get_module_sprite(module: ModuleResource) -> Texture2D:
 	#var atlas: TileSetAtlasSource = TILESET.get_source(module.source_id)

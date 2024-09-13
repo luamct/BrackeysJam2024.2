@@ -4,3 +4,4 @@ extends Node
 # on the player vehicle
 
 var grid: Dictionary
+var currency: int = 5

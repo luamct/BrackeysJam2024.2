@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://kygcv1vlqjgb"]
+[gd_scene load_steps=38 format=4 uid="uid://kygcv1vlqjgb"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_ar7i4"]
 [ext_resource type="Texture2D" uid="uid://ddjgd2deboygw" path="res://assets/toddown_tile.png" id="1_mnhdj"]
@@ -8,6 +8,10 @@
 [ext_resource type="Script" path="res://scripts/level_config_resource.gd" id="3_l04hi"]
 [ext_resource type="Texture2D" uid="uid://bpgd1ftyq1bb4" path="res://assets/basic-terrain-tiles.png" id="3_v31io"]
 [ext_resource type="PackedScene" uid="uid://vgjh2msn5asb" path="res://scenes/enemies/ling.tscn" id="4_oikfo"]
+[ext_resource type="Theme" uid="uid://cfefdawkscps1" path="res://assets/garage_panels.tres" id="9_g5v5t"]
+[ext_resource type="Texture2D" uid="uid://cfsyh14fjiu55" path="res://assets/garagem_panels.png" id="10_mnha8"]
+[ext_resource type="FontFile" uid="uid://ccmlo17b67pvu" path="res://assets/fonts/DigitalStrip2BB_Bold.otf" id="11_gcumw"]
+[ext_resource type="Texture2D" uid="uid://w3vbd228s3xb" path="res://assets/currency.png" id="12_wswsq"]
 
 [sub_resource type="Resource" id="Resource_rwoiw"]
 script = ExtResource("2_wsdji")
@@ -24,6 +28,11 @@ script = ExtResource("2_wsdji")
 type = 2
 length = 100
 
+[sub_resource type="Resource" id="Resource_jwfwi"]
+script = ExtResource("2_wsdji")
+type = 2
+length = 50
+
 [sub_resource type="Resource" id="Resource_m84iu"]
 script = ExtResource("2_wsdji")
 type = 3
@@ -32,7 +41,7 @@ length = 50
 [sub_resource type="Resource" id="Resource_7gpfr"]
 script = ExtResource("3_l04hi")
 height = 100
-areas = Array[ExtResource("2_wsdji")]([SubResource("Resource_rwoiw"), SubResource("Resource_6pjob"), SubResource("Resource_6wf8c"), SubResource("Resource_6pjob"), SubResource("Resource_m84iu")])
+areas = Array[ExtResource("2_wsdji")]([SubResource("Resource_rwoiw"), SubResource("Resource_6pjob"), SubResource("Resource_6wf8c"), SubResource("Resource_6pjob"), SubResource("Resource_jwfwi"), SubResource("Resource_m84iu")])
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pvenb"]
 texture = ExtResource("1_mnhdj")
@@ -173,6 +182,106 @@ sources/0 = SubResource("TileSetAtlasSource_c5eaa")
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_tp0cn"]
 normal = Vector2(-1, 0)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l2riq"]
+texture = ExtResource("10_mnha8")
+region_rect = Rect2(114, 11, 73, 40)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2mok7"]
+font = ExtResource("11_gcumw")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vwph3"]
+atlas = ExtResource("12_wswsq")
+region = Rect2(0, 16, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_epu0u"]
+atlas = ExtResource("12_wswsq")
+region = Rect2(15, 16, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3onf3"]
+atlas = ExtResource("12_wswsq")
+region = Rect2(30, 16, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iklwa"]
+atlas = ExtResource("12_wswsq")
+region = Rect2(45, 16, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i6txg"]
+atlas = ExtResource("12_wswsq")
+region = Rect2(60, 16, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ery2"]
+atlas = ExtResource("12_wswsq")
+region = Rect2(0, 0, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jw0or"]
+atlas = ExtResource("12_wswsq")
+region = Rect2(0, 0, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45kh2"]
+atlas = ExtResource("12_wswsq")
+region = Rect2(15, 0, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p53gu"]
+atlas = ExtResource("12_wswsq")
+region = Rect2(30, 0, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tob87"]
+atlas = ExtResource("12_wswsq")
+region = Rect2(45, 0, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nyuvl"]
+atlas = ExtResource("12_wswsq")
+region = Rect2(60, 0, 15, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p2km8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vwph3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_epu0u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3onf3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iklwa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i6txg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ery2")
+}],
+"loop": false,
+"name": &"buy",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jw0or")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_45kh2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p53gu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tob87")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nyuvl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jw0or")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 8.0
+}]
+
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_ar7i4")
 level_config = SubResource("Resource_7gpfr")
@@ -201,6 +310,11 @@ position = Vector2(85, 21)
 [node name="Ling3" parent="EnemyManager" instance=ExtResource("4_oikfo")]
 position = Vector2(-21, -147)
 
+[node name="GoalArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GoalArea"]
+shape = SubResource("WorldBoundaryShape2D_tp0cn")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HealthBar" type="ProgressBar" parent="CanvasLayer"]
@@ -216,7 +330,36 @@ grow_horizontal = 2
 max_value = 1.0
 show_percentage = false
 
-[node name="GoalArea" type="Area2D" parent="."]
+[node name="CurrencyContainer" type="Panel" parent="CanvasLayer"]
+offset_left = 332.0
+offset_top = 7.0
+offset_right = 405.0
+offset_bottom = 47.0
+theme = ExtResource("9_g5v5t")
+theme_override_styles/panel = SubResource("StyleBoxTexture_l2riq")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GoalArea"]
-shape = SubResource("WorldBoundaryShape2D_tp0cn")
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/CurrencyContainer"]
+layout_mode = 2
+offset_left = 24.0
+offset_top = 5.0
+offset_right = 71.0
+offset_bottom = 35.0
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_right = 10
+
+[node name="VBoxContainer" type="HBoxContainer" parent="CanvasLayer/CurrencyContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="CurrencyLabel" type="Label" parent="CanvasLayer/CurrencyContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_font_sizes/font_size = 24
+text = "?"
+label_settings = SubResource("LabelSettings_2mok7")
+vertical_alignment = 1
+
+[node name="CurrencySkull" type="AnimatedSprite2D" parent="CanvasLayer/CurrencyContainer"]
+position = Vector2(23, 20)
+sprite_frames = SubResource("SpriteFrames_p2km8")
+animation = &"buy"
