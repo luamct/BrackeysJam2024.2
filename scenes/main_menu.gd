@@ -17,3 +17,7 @@ func _on_start_button_pressed() -> void:
 
 func _on_exit_button_pressed() -> void:
 	get_tree().quit()
+
+func _input(event: InputEvent):
+	if Input.is_key_pressed(KEY_ESCAPE):
+		get_tree().quit()
