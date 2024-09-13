@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://btbm1a6f02onb"]
+[gd_scene load_steps=14 format=3 uid="uid://btcdk2a6j0c73"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_q3lhy"]
 [ext_resource type="Texture2D" uid="uid://ddjgd2deboygw" path="res://assets/toddown_tile.png" id="2_mr5js"]

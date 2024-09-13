@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://kygcv1vlqjgb"]
+[gd_scene load_steps=39 format=4 uid="uid://kygcv1vlqjgb"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_ar7i4"]
 [ext_resource type="Texture2D" uid="uid://ddjgd2deboygw" path="res://assets/toddown_tile.png" id="1_mnhdj"]
@@ -8,11 +8,11 @@
 [ext_resource type="Script" path="res://scripts/level_config_resource.gd" id="3_l04hi"]
 [ext_resource type="Texture2D" uid="uid://bpgd1ftyq1bb4" path="res://assets/basic-terrain-tiles.png" id="3_v31io"]
 [ext_resource type="PackedScene" uid="uid://vgjh2msn5asb" path="res://scenes/enemies/ling.tscn" id="4_oikfo"]
+[ext_resource type="PackedScene" uid="uid://btcdk2a6j0c73" path="res://scenes/enemies/brute.tscn" id="9_dedx2"]
 [ext_resource type="Theme" uid="uid://cfefdawkscps1" path="res://assets/garage_panels.tres" id="9_g5v5t"]
 [ext_resource type="Texture2D" uid="uid://cfsyh14fjiu55" path="res://assets/garagem_panels.png" id="10_mnha8"]
 [ext_resource type="FontFile" uid="uid://ccmlo17b67pvu" path="res://assets/fonts/DigitalStrip2BB_Bold.otf" id="11_gcumw"]
 [ext_resource type="Texture2D" uid="uid://w3vbd228s3xb" path="res://assets/currency.png" id="12_wswsq"]
-[ext_resource type="PackedScene" uid="uid://btbm1a6f02onb" path="res://scenes/enemies/brute.tscn" id="9_dedx2"]
 
 [sub_resource type="Resource" id="Resource_rwoiw"]
 script = ExtResource("2_wsdji")
@@ -311,15 +311,16 @@ position = Vector2(85, 21)
 [node name="Ling3" parent="EnemyManager" instance=ExtResource("4_oikfo")]
 position = Vector2(-21, -147)
 
-[node name="GoalArea" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GoalArea"]
-shape = SubResource("WorldBoundaryShape2D_tp0cn")
 [node name="brute" parent="EnemyManager" instance=ExtResource("9_dedx2")]
 position = Vector2(90, -8)
 
 [node name="brute2" parent="EnemyManager" instance=ExtResource("9_dedx2")]
 position = Vector2(93, -31)
+
+[node name="GoalArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GoalArea"]
+shape = SubResource("WorldBoundaryShape2D_tp0cn")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
