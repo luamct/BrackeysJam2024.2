@@ -26,8 +26,8 @@ var acceleration = Vector2.ZERO
 var steer_direction
 var controls_disabled = false
 
-@export var max_health = 1000
-var health = max_health
+@export var max_health: int
+var health
 
 @onready var modules_tile_map: TileMapLayer = $ModulesTileMapLayer
 @onready var modules: Node2D = $Modules
@@ -42,6 +42,11 @@ func _ready():
 				var local_position = modules_tile_map.map_to_local(coords) + modules_tile_map.position
 				var instance = MachineGun.create(module, local_position)
 				modules.add_child(instance)
+
+			"Armor":
+				max_health += module.extra_health
+
+	health = max_health
 
 func _physics_process(delta):
 	acceleration = Vector2.ZERO

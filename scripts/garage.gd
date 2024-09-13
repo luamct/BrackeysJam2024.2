@@ -12,19 +12,13 @@ const LEVEL_SCENE: PackedScene = preload("res://scenes/level.tscn")
 @onready var currency_label: Label = %CurrencyLabel
 @onready var currency_skull: AnimatedSprite2D = $CanvasLayer/CurrencyContainer/CurrencySkull
 
-#@onready var done_button: Button = $CanvasLayer/DoneButton
-
 # Game mutable state
 var selected_module: ModuleResource = null
-var truck_size: Vector2i = Vector2i(4, 5)
-#var player_currency: int = 12
-
 
 func _ready() -> void:
 	shop_panel.module_selected.connect(on_module_selected)
 	currency_label.text = str(Globals.currency)
 	currency_skull.play("idle")
-	#done_button.pressed.connect(on_done_button_pressed)
 	add_modules_to_tilemap()
 
 func add_modules_to_tilemap():
@@ -78,12 +72,3 @@ func _input(event: InputEvent):
 
 	if Input.is_key_pressed(KEY_ESCAPE):
 		get_tree().quit()
-
-#func place_module(module: ModuleResource, position: Vector2i):
-	#pass
-	
-#func get_module_sprite(module: ModuleResource) -> Texture2D:
-	#var atlas: TileSetAtlasSource = TILESET.get_source(module.source_id)
-	#var atlasImage = atlas.texture.get_image()
-	#var tileImage = atlasImage.get_region(atlas.get_tile_texture_region(module.atlas_coords))
-	#return ImageTexture.create_from_image(tileImage)

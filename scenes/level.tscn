@@ -147,6 +147,7 @@ tile_set = SubResource("TileSet_nnw5m")
 [node name="Vehicle" parent="." instance=ExtResource("5_tcc75")]
 engine_power = 900
 max_speed_reverse = 500
+max_health = 20
 
 [node name="EnemyManager" type="Node2D" parent="." groups=["enemy_manager"]]
 script = ExtResource("6_wlepa")
