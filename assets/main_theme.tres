@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=3 format=3 uid="uid://dynpu3r6aj2i3"]
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://b2meckgrit23i"]
 
 [ext_resource type="FontFile" uid="uid://3hanlcnpeqkl" path="res://assets/fonts/DigitalStrip2BB_Regular.otf" id="1_q8hdi"]
 [ext_resource type="FontFile" uid="uid://ccmlo17b67pvu" path="res://assets/fonts/DigitalStrip2BB_Bold.otf" id="2_qdh1y"]
@@ -6,3 +6,4 @@
 [resource]
 Button/fonts/font = ExtResource("1_q8hdi")
 Label/fonts/font = ExtResource("2_qdh1y")
+ProgressBar/styles/background = null
