@@ -1,8 +1,11 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://cfefdawkscps1"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://cfefdawkscps1"]
 
+[ext_resource type="Texture2D" uid="uid://cfsyh14fjiu55" path="res://assets/garagem_panels.png" id="1_l2mts"]
 [ext_resource type="Texture2D" uid="uid://cdox3oav3ngbi" path="res://assets/lifebar_fill.png" id="2_3o18h"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1jx17"]
+texture = ExtResource("1_l2mts")
+region_rect = Rect2(12, 8, 92, 140)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_03e46"]
 
