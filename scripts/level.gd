@@ -23,9 +23,11 @@ const types_to_tiles = {
 @onready var tile_size: int = tile_map.tile_set.tile_size.x
 @onready var garage_scene: PackedScene = load("res://scenes/garage.tscn")
 
-@export var level_config: LevelConfigResource
+var level_config: LevelConfigResource
 
 func _ready():
+	level_config = Globals.current_level_config()
+	
 	vehicle.health_changed.connect(on_health_changed)
 	health_bar.value = 1.0
 	currency_label.text = str(Globals.currency)
@@ -48,10 +50,16 @@ func _ready():
 func on_body_entered_goal_area(body: Node2D):
 	if body is Vehicle:
 		vehicle.disable_controls()
+		
 		Globals.currency += level_config.reward
 		currency_label.text = str(Globals.currency)
+		Globals.current_level += 1
 		
 		await get_tree().create_timer(2.0).timeout
+		if Globals.no_next_level():
+			# Add Victory screen!
+			get_tree().quit()
+			
 		call_deferred("load_garage_scene")
 
 func load_garage_scene():

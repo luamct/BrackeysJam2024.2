@@ -3,7 +3,7 @@ extends Node2D
 
 const SOURCE_ID = 0
 const TILESET = preload("res://resources/Tileset.tres")
-const level1_scene: PackedScene = preload("res://scenes/level_1.tscn")
+const LEVEL_SCENE: PackedScene = preload("res://scenes/level.tscn")
 
 @onready var tile_map: TileMapLayer = $ModulesTileMapLayer
 @onready var base_tile_map: TileMapLayer = $BaseTileMapLayer
@@ -33,7 +33,7 @@ func add_modules_to_tilemap():
 		tile_map.set_cell(coords, SOURCE_ID, module.atlas_coords)
 		
 func _on_done_button_pressed() -> void:
-	get_tree().change_scene_to_packed(level1_scene)
+	get_tree().change_scene_to_packed(LEVEL_SCENE)
 
 func on_module_selected(module: ModuleResource):
 	selected_module = module

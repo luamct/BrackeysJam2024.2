@@ -31,9 +31,8 @@ func on_body_entered(body: Node):
 
 		if health <= 0:
 			die()
-			
+
 	elif body is Vehicle:
-		print("Within meele distance")
 		meele_range = true
 
 func on_body_exited(body: Node):
@@ -55,7 +54,6 @@ func _process(delta: float) -> void:
 	var distance = position.distance_to(player.position)
 	if meele_range :
 		if attack_cooldown.is_stopped():
-			print("Attack player")
 			sprite.play("attack")  # Replace with attack animation
 			attack_cooldown.start()
 			player.take_damage(damage)
