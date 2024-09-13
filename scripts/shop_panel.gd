@@ -8,7 +8,7 @@ signal module_selected(module: ModuleResource)
 @onready var grid_container: GridContainer = $ModulesContainer/GridContainer
 @onready var description_label: Label = %DescriptionLabel
 @onready var skully_sprite: AnimatedSprite2D = $"../AnimatedSprite2D"
-@onready var description_container: Panel = $DescriptionContainer
+@onready var description_container: PanelContainer = $DescriptionContainer
 
 const SOURCE_ID = 0
 const MODULE_BUTTON_SCENE = preload("res://scenes/module_button.tscn")
