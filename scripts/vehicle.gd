@@ -24,8 +24,9 @@ var wheel_base = 50  # Distance from front to rear wheel
 
 var acceleration = Vector2.ZERO
 var steer_direction
+var controls_disabled = false
 
-var max_health = 10
+@export var max_health = 1000
 var health = max_health
 
 @onready var modules_tile_map: TileMapLayer = $ModulesTileMapLayer
@@ -58,6 +59,9 @@ func apply_friction(delta):
 	acceleration += drag_force + friction_force
 
 func get_input():
+	if controls_disabled:
+		return
+		
 	var turn = Input.get_axis("steer_left", "steer_right")
 	steer_direction = turn * deg_to_rad(steering_angle)
 	if Input.is_action_pressed("accelerate"):
@@ -94,3 +98,6 @@ func die():
 	# Play death animation
 	# Show retry prompt
 	get_tree().quit()
+
+func disable_controls():
+	controls_disabled = true

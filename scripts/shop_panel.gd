@@ -20,7 +20,7 @@ func _ready() -> void:
 		var atlas_texture = module_button.texture_normal as AtlasTexture
 		var atlas: TileSetAtlasSource = TILESET.get_source(SOURCE_ID)
 		atlas_texture.region = atlas.get_tile_texture_region(module.atlas_coords)
-		
+
 		module_button.pressed.connect(func(): module_button_pressed(module))
 		module_button.mouse_entered.connect(func(): on_mouse_hovering(module))
 		module_button.mouse_exited.connect(func(): on_mouse_exit(module))
@@ -28,12 +28,11 @@ func _ready() -> void:
 
 func module_button_pressed(module: ModuleResource):
 	module_selected.emit(module)
-	
+
 func on_mouse_hovering(module: ModuleResource):
 	description_container.visible = true
 	skully_sprite.play("skully_talk")
-	print(module.name)
 	description_label.text = module.description()
 	
-func on_mouse_exit(module: ModuleResource):
+func on_mouse_exit(_module: ModuleResource):
 	description_container.visible = false
