@@ -275,6 +275,7 @@ offset_bottom = 118.0
 columns = 2
 
 [node name="DescriptionContainer" type="Panel" parent="CanvasLayer/ShopPanel"]
+visible = false
 layout_mode = 2
 offset_left = 49.0
 offset_top = 161.0
