@@ -41,6 +41,8 @@ length = 50
 
 [sub_resource type="Resource" id="Resource_7gpfr"]
 script = ExtResource("3_l04hi")
+city_name = "Cuiaba"
+reward = 10
 height = 100
 areas = Array[ExtResource("2_wsdji")]([SubResource("Resource_rwoiw"), SubResource("Resource_6pjob"), SubResource("Resource_6wf8c"), SubResource("Resource_6pjob"), SubResource("Resource_jwfwi"), SubResource("Resource_m84iu")])
 
