@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://dm3igb3h34frm"]
+[gd_scene load_steps=48 format=4 uid="uid://dm3igb3h34frm"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_w1bvq"]
 [ext_resource type="PackedScene" uid="uid://cckyy7pvonvg7" path="res://scenes/old_vehicle.tscn" id="2_goglh"]
@@ -10,7 +10,6 @@
 [ext_resource type="Resource" uid="uid://cpry4cqiwpxx6" path="res://resources/modules/engine.tres" id="7_7x40w"]
 [ext_resource type="Resource" uid="uid://cg81n10axhb5u" path="res://resources/modules/force_field.tres" id="8_v2u38"]
 [ext_resource type="Resource" uid="uid://b7pl8mkhv5sww" path="res://resources/modules/nos.tres" id="9_nfequ"]
-[ext_resource type="Texture2D" uid="uid://dri4jwnemntk6" path="res://assets/coin.png" id="10_ayiru"]
 [ext_resource type="FontFile" uid="uid://ccmlo17b67pvu" path="res://assets/fonts/DigitalStrip2BB_Bold.otf" id="11_3mnvu"]
 [ext_resource type="Resource" uid="uid://dbv667ul20ccj" path="res://resources/modules/machine_gun.tres" id="11_f0luf"]
 [ext_resource type="Theme" uid="uid://cfefdawkscps1" path="res://assets/garage_panels.tres" id="11_lsrfh"]
@@ -19,6 +18,9 @@
 [ext_resource type="Texture2D" uid="uid://wkc8svp3axmp" path="res://assets/button_done_inactive.png" id="12_vwb4n"]
 [ext_resource type="Texture2D" uid="uid://d4jl77545mv3s" path="res://assets/button_done_click.png" id="13_jlys1"]
 [ext_resource type="Texture2D" uid="uid://bkkjnc326kcmx" path="res://assets/button_done_hover.png" id="14_8e345"]
+[ext_resource type="FontFile" uid="uid://3hanlcnpeqkl" path="res://assets/fonts/DigitalStrip2BB_Regular.otf" id="14_jcogg"]
+[ext_resource type="Texture2D" uid="uid://w3vbd228s3xb" path="res://assets/currency.png" id="19_03sgc"]
+[ext_resource type="Texture2D" uid="uid://by3cdh1oihhh1" path="res://assets/skully.png" id="19_obdgl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_601ph"]
 atlas = ExtResource("2_pxlus")
@@ -35,16 +37,185 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8dwp0"]
+texture = ExtResource("12_4wk4u")
+region_rect = Rect2(41, 182, 127, 42)
+
+[sub_resource type="LabelSettings" id="LabelSettings_kwn16"]
+line_spacing = 0.0
+font = ExtResource("14_jcogg")
+font_size = 10
+font_color = Color(0, 0, 0, 1)
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r5uim"]
 texture = ExtResource("12_4wk4u")
 region_rect = Rect2(114, 11, 73, 40)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qxvbi"]
-atlas = ExtResource("10_ayiru")
-region = Rect2(0, 0, 16, 16)
-
 [sub_resource type="LabelSettings" id="LabelSettings_1xquc"]
 font = ExtResource("11_3mnvu")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vwph3"]
+atlas = ExtResource("19_03sgc")
+region = Rect2(0, 16, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_epu0u"]
+atlas = ExtResource("19_03sgc")
+region = Rect2(15, 16, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3onf3"]
+atlas = ExtResource("19_03sgc")
+region = Rect2(30, 16, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iklwa"]
+atlas = ExtResource("19_03sgc")
+region = Rect2(45, 16, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i6txg"]
+atlas = ExtResource("19_03sgc")
+region = Rect2(60, 16, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ery2"]
+atlas = ExtResource("19_03sgc")
+region = Rect2(0, 0, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jw0or"]
+atlas = ExtResource("19_03sgc")
+region = Rect2(0, 0, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45kh2"]
+atlas = ExtResource("19_03sgc")
+region = Rect2(15, 0, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p53gu"]
+atlas = ExtResource("19_03sgc")
+region = Rect2(30, 0, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tob87"]
+atlas = ExtResource("19_03sgc")
+region = Rect2(45, 0, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nyuvl"]
+atlas = ExtResource("19_03sgc")
+region = Rect2(60, 0, 15, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ja0da"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vwph3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_epu0u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3onf3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iklwa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i6txg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ery2")
+}],
+"loop": false,
+"name": &"buy",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jw0or")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_45kh2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p53gu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tob87")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nyuvl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jw0or")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 8.0
+}]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_agbjn"]
+texture = ExtResource("12_4wk4u")
+region_rect = Rect2(318, 0, 108, 134)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ar6p"]
+atlas = ExtResource("19_obdgl")
+region = Rect2(0, 0, 22, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cy71s"]
+atlas = ExtResource("19_obdgl")
+region = Rect2(22, 0, 22, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_03obk"]
+atlas = ExtResource("19_obdgl")
+region = Rect2(44, 0, 22, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5aqvm"]
+atlas = ExtResource("19_obdgl")
+region = Rect2(66, 0, 22, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2473m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ar6p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cy71s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_03obk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5aqvm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cy71s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_03obk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5aqvm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cy71s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_03obk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5aqvm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cy71s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_03obk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5aqvm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ar6p")
+}],
+"loop": false,
+"name": &"skully_talk",
+"speed": 12.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h02md"]
 atlas = ExtResource("11_ni5w0")
@@ -84,7 +255,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_left = 15.0
 offset_top = 12.0
-offset_right = 147.0
+offset_right = 107.0
 offset_bottom = 144.0
 script = ExtResource("4_6jia3")
 available_modules = Array[ExtResource("5_gi02f")]([ExtResource("6_8hdd4"), ExtResource("7_7x40w"), ExtResource("8_v2u38"), ExtResource("9_nfequ"), ExtResource("11_f0luf")])
@@ -103,16 +274,27 @@ offset_right = 65.0
 offset_bottom = 118.0
 columns = 2
 
-[node name="DescriptionContainer" type="PanelContainer" parent="CanvasLayer/ShopPanel"]
+[node name="DescriptionContainer" type="Panel" parent="CanvasLayer/ShopPanel"]
+visible = false
 layout_mode = 2
-offset_left = 28.0
-offset_top = 143.0
-offset_right = 147.0
-offset_bottom = 216.0
+offset_left = 49.0
+offset_top = 161.0
+offset_right = 179.0
+offset_bottom = 202.0
+theme = ExtResource("11_lsrfh")
+theme_override_styles/panel = SubResource("StyleBoxTexture_8dwp0")
 
 [node name="DescriptionLabel" type="Label" parent="CanvasLayer/ShopPanel/DescriptionContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+offset_left = 15.0
+offset_top = 7.0
+offset_right = 122.0
+offset_bottom = 35.0
+label_settings = SubResource("LabelSettings_kwn16")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="DoneButton" type="TextureButton" parent="CanvasLayer"]
 anchors_preset = 2
@@ -128,34 +310,52 @@ texture_pressed = ExtResource("13_jlys1")
 texture_hover = ExtResource("14_8e345")
 
 [node name="CurrencyContainer" type="Panel" parent="CanvasLayer"]
-offset_left = 169.0
-offset_top = 12.0
-offset_right = 234.0
-offset_bottom = 52.0
+offset_left = 125.0
+offset_top = 15.0
+offset_right = 198.0
+offset_bottom = 55.0
 theme = ExtResource("11_lsrfh")
 theme_override_styles/panel = SubResource("StyleBoxTexture_r5uim")
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/CurrencyContainer"]
 layout_mode = 2
-offset_right = 65.0
-offset_bottom = 40.0
+offset_left = 24.0
+offset_top = 5.0
+offset_right = 71.0
+offset_bottom = 35.0
 theme_override_constants/margin_left = 0
 theme_override_constants/margin_right = 10
 
 [node name="VBoxContainer" type="HBoxContainer" parent="CanvasLayer/CurrencyContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/CurrencyContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-texture = SubResource("AtlasTexture_qxvbi")
-stretch_mode = 4
-
 [node name="CurrencyLabel" type="Label" parent="CanvasLayer/CurrencyContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 6
 theme_override_font_sizes/font_size = 24
 text = "?"
 label_settings = SubResource("LabelSettings_1xquc")
+vertical_alignment = 1
+
+[node name="CurrencySkull" type="AnimatedSprite2D" parent="CanvasLayer/CurrencyContainer"]
+position = Vector2(23, 20)
+sprite_frames = SubResource("SpriteFrames_ja0da")
+animation = &"buy"
+frame = 5
+frame_progress = 1.0
+
+[node name="VehicleStats" type="Panel" parent="CanvasLayer"]
+offset_left = 318.0
+offset_right = 426.0
+offset_bottom = 134.0
+theme = ExtResource("11_lsrfh")
+theme_override_styles/panel = SubResource("StyleBoxTexture_agbjn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer"]
+position = Vector2(47, 183)
+sprite_frames = SubResource("SpriteFrames_2473m")
+animation = &"skully_talk"
 
 [node name="ShopModuleSprite" type="Sprite2D" parent="."]
 visible = false

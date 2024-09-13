@@ -10,6 +10,8 @@ const level1_scene: PackedScene = preload("res://scenes/level_1.tscn")
 @onready var shop_panel: ShopPanel = %ShopPanel
 @onready var shop_module_sprite: Sprite2D = $ShopModuleSprite
 @onready var currency_label: Label = %CurrencyLabel
+@onready var currency_skull: AnimatedSprite2D = $CanvasLayer/CurrencyContainer/CurrencySkull
+
 #@onready var done_button: Button = $CanvasLayer/DoneButton
 
 # Game mutable state
@@ -21,6 +23,7 @@ var player_currency: int = 12
 func _ready() -> void:
 	shop_panel.module_selected.connect(on_module_selected)
 	currency_label.text = str(player_currency)
+	currency_skull.play("idle")
 	#done_button.pressed.connect(on_done_button_pressed)
 
 func _on_done_button_pressed() -> void:
@@ -46,6 +49,7 @@ func _input(event: InputEvent):
 
 						player_currency -= selected_module.cost
 						currency_label.text = str(player_currency)
+						currency_skull.play("buy")
 					else: 
 						print("Not enough money!")
 				else:
