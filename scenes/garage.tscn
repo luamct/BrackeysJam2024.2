@@ -1,6 +1,6 @@
 [gd_scene load_steps=48 format=4 uid="uid://dm3igb3h34frm"]
 
-[ext_resource type="Script" path="res://scripts/game.gd" id="1_w1bvq"]
+[ext_resource type="Script" path="res://scripts/garage.gd" id="1_w1bvq"]
 [ext_resource type="PackedScene" uid="uid://cckyy7pvonvg7" path="res://scenes/old_vehicle.tscn" id="2_goglh"]
 [ext_resource type="Texture2D" uid="uid://cvgt346rhhepb" path="res://assets/garagem_bg.png" id="2_pxlus"]
 [ext_resource type="TileSet" uid="uid://dfm6gj16u0smi" path="res://resources/Tileset.tres" id="3_kwkrj"]

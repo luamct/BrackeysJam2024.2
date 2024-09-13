@@ -1,4 +1,4 @@
-class_name Game
+class_name Garage
 extends Node2D
 
 const SOURCE_ID = 0
@@ -25,7 +25,13 @@ func _ready() -> void:
 	currency_label.text = str(Globals.currency)
 	currency_skull.play("idle")
 	#done_button.pressed.connect(on_done_button_pressed)
+	add_modules_to_tilemap()
 
+func add_modules_to_tilemap():
+	for coords in Globals.grid:
+		var module: ModuleResource = Globals.grid[coords]
+		tile_map.set_cell(coords, SOURCE_ID, module.atlas_coords)
+		
 func _on_done_button_pressed() -> void:
 	get_tree().change_scene_to_packed(level1_scene)
 
