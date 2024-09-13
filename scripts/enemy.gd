@@ -56,7 +56,7 @@ func _process(delta: float) -> void:
 	if meele_range :
 		if attack_cooldown.is_stopped():
 			print("Attack player")
-			sprite.play("dead")  # Replace with attack animation
+			sprite.play("attack")  # Replace with attack animation
 			attack_cooldown.start()
 			player.take_damage(damage)
 		#else:
