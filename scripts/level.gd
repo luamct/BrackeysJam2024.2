@@ -52,7 +52,13 @@ func _ready():
 
 		for y in range(-half_height, half_height):
 			for x in range(level_area.length):
-				tile_map.set_cell(Vector2i(starting_x + x, y), SOURCE_ID, types_to_tiles[level_area.type])
+				var tile_coord: Vector2i = types_to_tiles[level_area.type]
+				var r = randf()
+				if r < 0.4: tile_coord.y = 0
+				elif r < 0.7: tile_coord.y = 1
+				elif r < 1.0: tile_coord.y = 2
+
+				tile_map.set_cell(Vector2i(starting_x + x, y), SOURCE_ID, tile_coord)
 
 		starting_x += level_area.length
 
