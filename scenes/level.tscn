@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://kygcv1vlqjgb"]
+[gd_scene load_steps=33 format=3 uid="uid://kygcv1vlqjgb"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_0nox1"]
 [ext_resource type="Texture2D" uid="uid://bpgd1ftyq1bb4" path="res://assets/basic-terrain-tiles.png" id="4_8bh6c"]
@@ -150,6 +150,69 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="Animation" id="Animation_x84xk"]
+resource_name = "storm"
+length = 6.5
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Vehicle/storm:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.972549, 1, 0.164706, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Vehicle/storm:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 1, 1.3, 1.4, 1.7, 1.9, 2.3, 2.7, 3.1, 3.7, 4.1, 4.4, 4.8, 5.1, 5.3, 5.5, 5.8, 5.9, 6.1, 6.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.823529), Color(1, 1, 1, 0), Color(1, 1, 1, 0.172549), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 0.823529), Color(1, 1, 1, 0), Color(1, 1, 1, 0.823529), Color(1, 1, 1, 0), Color(1, 1, 1, 0.823529), Color(1, 1, 1, 0), Color(1, 1, 1, 0.172549), Color(1, 1, 1, 0), Color(1, 1, 1, 0.823529), Color(1, 1, 1, 0), Color(1, 1, 1, 0.172549), Color(1, 1, 1, 0), Color(1, 1, 1, 0.823529), Color(1, 1, 1, 0), Color(1, 1, 1, 0.172549), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_klq63"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Vehicle/storm:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Vehicle/storm:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.972549, 1, 0.164706, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t4hn0"]
+_data = {
+"RESET": SubResource("Animation_klq63"),
+"storm": SubResource("Animation_x84xk")
+}
+
 [node name="Level" type="Node2D" groups=["level"]]
 script = ExtResource("1_0nox1")
 enemy_noise = SubResource("NoiseTexture2D_l7sej")
@@ -158,6 +221,14 @@ enemy_noise = SubResource("NoiseTexture2D_l7sej")
 tile_set = SubResource("TileSet_nnw5m")
 
 [node name="Vehicle" parent="." instance=ExtResource("5_tcc75")]
+
+[node name="storm" type="ColorRect" parent="Vehicle"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -332.0
+offset_top = -253.0
+offset_right = 332.0
+offset_bottom = 252.0
+color = Color(0.972549, 1, 0.164706, 1)
 
 [node name="EnemyManager" type="Node2D" parent="." groups=["enemy_manager"]]
 script = ExtResource("6_wlepa")
@@ -219,7 +290,7 @@ vertical_alignment = 1
 [node name="CurrencySkull" type="AnimatedSprite2D" parent="CanvasLayer/CurrencyContainer"]
 position = Vector2(23, 20)
 sprite_frames = SubResource("SpriteFrames_p2km8")
-animation = &"buy"
+animation = &"idle"
 
 [node name="FPSLabel" type="Label" parent="CanvasLayer"]
 unique_name_in_owner = true
@@ -228,3 +299,8 @@ offset_bottom = 21.0
 text = "FPS: ?"
 
 [node name="StormDamageTimer" type="Timer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_t4hn0")
+}

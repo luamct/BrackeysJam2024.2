@@ -12,6 +12,7 @@ const LING = preload("res://scenes/enemies/ling.tscn")
 const BRUTE = preload("res://scenes/enemies/brute.tscn")
 const STORM_AREA = preload("res://scenes/storm_area.tscn")
 const STORM_EDGE = preload("res://scenes/storm_edge.tscn")
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 const types_to_tiles = {
 	LevelAreaResource.AreaType.SAND: SAND_TILE_COORD,
@@ -136,9 +137,12 @@ func add_storm_areas(x, length):
 	
 func on_entering_storm(_body):
 	storm_damage_timer.start()
+	print("storm")
+	animation_player.play("storm")
 	
 func on_leaving_storm(_body):
 	storm_damage_timer.stop()
+	animation_player.stop()
 	
 func on_enemy_died(enemy: Enemy):
 	enemies.erase(enemy)
