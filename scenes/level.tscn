@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://kygcv1vlqjgb"]
+[gd_scene load_steps=36 format=3 uid="uid://kygcv1vlqjgb"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_0nox1"]
 [ext_resource type="Texture2D" uid="uid://bpgd1ftyq1bb4" path="res://assets/basic-terrain-tiles.png" id="4_8bh6c"]
@@ -7,6 +7,7 @@
 [ext_resource type="Theme" uid="uid://cfefdawkscps1" path="res://assets/garage_panels.tres" id="9_l4nk1"]
 [ext_resource type="FontFile" uid="uid://cw7igdhd0rowb" path="res://assets/fonts/PixelifySans-Bold.ttf" id="10_0ki8t"]
 [ext_resource type="Texture2D" uid="uid://dnbg2ybvmtpmw" path="res://assets/lifebar.png" id="10_nd7tv"]
+[ext_resource type="AudioStream" uid="uid://cu6v7s3o5rnpm" path="res://assets/audio/engine_start.wav" id="11_6x6bh"]
 [ext_resource type="Texture2D" uid="uid://cfsyh14fjiu55" path="res://assets/garagem_panels.png" id="11_u2jnv"]
 [ext_resource type="FontFile" uid="uid://ccmlo17b67pvu" path="res://assets/fonts/DigitalStrip2BB_Bold.otf" id="12_thd7d"]
 [ext_resource type="Texture2D" uid="uid://w3vbd228s3xb" path="res://assets/currency.png" id="13_skivl"]
@@ -320,3 +321,7 @@ label_settings = SubResource("LabelSettings_o0b3t")
 libraries = {
 "": SubResource("AnimationLibrary_t4hn0")
 }
+
+[node name="EngineStart" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_6x6bh")
+autoplay = true
