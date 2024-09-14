@@ -22,6 +22,7 @@ const types_to_tiles = {
 @onready var currency_label: Label = %CurrencyLabel
 @onready var tile_size: int = tile_map.tile_set.tile_size.x
 @onready var garage_scene: PackedScene = load("res://scenes/garage.tscn")
+@onready var victory_scene: PackedScene = load("res://scenes/victory.tscn")
 
 var level_config: LevelConfigResource
 
@@ -57,8 +58,9 @@ func on_body_entered_goal_area(body: Node2D):
 		
 		await get_tree().create_timer(2.0).timeout
 		if Globals.no_next_level():
-			# Add Victory screen!
-			get_tree().quit()
+			#Add Victory screen!
+			get_tree().change_scene_to_packed(victory_scene)
+			#get_tree().quit()
 			
 		call_deferred("load_garage_scene")
 
