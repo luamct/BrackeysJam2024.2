@@ -93,6 +93,7 @@ animations = [{
 radius = 3.0
 
 [node name="Enemy" type="Node2D"]
+z_index = 5
 script = ExtResource("1_tm5wa")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

@@ -90,6 +90,5 @@ func _input(event: InputEvent):
 func update_vehicle_stats():
 	var stats_text = ""
 	stats_text += "Health: " + str(Globals.max_health) + "\n"
-	stats_text += "Engine Power: ?\n"# + str(Globals.max_health)
-	stats_text += "Max Speed: ?\n" #+ str(Globals.max_health)
+	stats_text += "Engine Power: " + str(Globals.engine_power) + "\n"
 	vehicle_stats_label.text = stats_text

@@ -4,6 +4,7 @@ extends Node
 # state of the game, and also the levels configuration
 
 @export var max_health: int
+@export var engine_power: int
 @export var currency: int
 @export var levels: Array[LevelConfigResource]
 

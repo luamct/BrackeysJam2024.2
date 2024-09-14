@@ -9,7 +9,7 @@ const MACHINE_GUN_SCENE = preload("res://scenes/modules/machine_gun.tscn")
 # Steering and acceleration
 var wheel_base = 50  # Distance from front to rear wheel
 @export var steering_angle: int  # Amount that front wheel turns, in degrees
-@export var engine_power: int  # Forward acceleration force.
+#@export var engine_power: int  # Forward acceleration force.
 
 # Deccelaration
 @export var friction: int # Resistance from the ground
@@ -66,7 +66,7 @@ func get_input():
 	var turn = Input.get_axis("steer_left", "steer_right")
 	steer_direction = turn * deg_to_rad(steering_angle)
 	if Input.is_action_pressed("accelerate"):
-		acceleration = transform.x * engine_power
+		acceleration = transform.x * Globals.engine_power
 	if Input.is_action_pressed("brake"):
 		acceleration = transform.x * braking
 		
