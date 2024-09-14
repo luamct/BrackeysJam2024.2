@@ -11,6 +11,7 @@ const NOISE_RANGE = 0.7
 const LING = preload("res://scenes/enemies/ling.tscn")
 const BRUTE = preload("res://scenes/enemies/brute.tscn")
 const STORM_AREA = preload("res://scenes/storm_area.tscn")
+const STORM_EDGE = preload("res://scenes/storm_edge.tscn")
 
 const types_to_tiles = {
 	LevelAreaResource.AreaType.SAND: SAND_TILE_COORD,
@@ -124,12 +125,19 @@ func add_storm_areas(x, length):
 	leave_area.body_entered.connect(on_leaving_storm)
 	add_child(leave_area)
 	
-func on_entering_storm(body):
-	print("Entering storm")
+	var storm_start = STORM_EDGE.instantiate()
+	storm_start.position.x = x * tile_size
+	add_child(storm_start)
+	
+	var storm_end = STORM_EDGE.instantiate()
+	storm_end.rotation_degrees = 180
+	storm_end.position.x = (x + length) * tile_size
+	add_child(storm_end)
+	
+func on_entering_storm(_body):
 	storm_damage_timer.start()
 	
-func on_leaving_storm(body):
-	print("Leaving storm")
+func on_leaving_storm(_body):
 	storm_damage_timer.stop()
 	
 func on_enemy_died(enemy: Enemy):
@@ -143,7 +151,7 @@ func on_body_entered_goal_area(body: Node2D):
 		currency_label.text = str(Globals.currency)
 		Globals.current_level += 1
 
-		await get_tree().create_timer(2.0).timeout
+		await get_tree().create_timer(1.0).timeout
 		if Globals.no_next_level():
 			#Add Victory screen!
 			get_tree().change_scene_to_packed(victory_scene)

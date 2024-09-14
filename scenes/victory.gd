@@ -6,15 +6,12 @@ extends Control
 func _ready() -> void:
 	pass # Replace with function body.
 
-
-
 func _on_exit_pressed() -> void:
 	get_tree().quit()
-
 
 func _on_playagain_pressed() -> void:
 	get_tree().change_scene_to_packed(garage_scene)
 	
-func _input(event: InputEvent):
+func _input(_event: InputEvent):
 	if Input.is_key_pressed(KEY_ESCAPE):
 		get_tree().quit()

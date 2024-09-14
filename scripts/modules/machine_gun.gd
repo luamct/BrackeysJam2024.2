@@ -10,7 +10,7 @@ var grid_position: Vector2
 var level: Level
 
 var bullet_impulse: int = 500
-var max_range: int = 300
+var max_range: int = 150
 var fire_rate: float # Shots per second
 var damage: int # Per shot
 
