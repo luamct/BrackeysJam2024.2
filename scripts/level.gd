@@ -135,5 +135,5 @@ func load_garage_scene():
 func on_health_changed(percentage: float):
 	health_bar.value = percentage
 
-func _process(_delta):
-	%FPSLabel.text = "FPS: " + str(Engine.get_frames_per_second())
+#func _process(_delta):
+	#%FPSLabel.text = "FPS: " + str(Engine.get_frames_per_second())
