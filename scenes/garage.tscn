@@ -362,6 +362,18 @@ offset_bottom = 134.0
 theme = ExtResource("11_lsrfh")
 theme_override_styles/panel = SubResource("StyleBoxTexture_agbjn")
 
+[node name="VehicleStatsLabel" type="Label" parent="CanvasLayer/VehicleStats"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 25.0
+offset_top = 8.0
+offset_right = 172.0
+offset_bottom = 107.0
+scale = Vector2(0.5, 0.5)
+text = "Health: ?
+Engine Power: ?
+Max Speed: ?"
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer"]
 position = Vector2(47, 183)
 sprite_frames = SubResource("SpriteFrames_2473m")

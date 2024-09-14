@@ -26,7 +26,6 @@ var acceleration = Vector2.ZERO
 var steer_direction
 var controls_disabled = false
 
-@export var max_health: int
 var health
 
 @onready var modules_tile_map: TileMapLayer = $ModulesTileMapLayer
@@ -43,10 +42,7 @@ func _ready():
 				var instance = MachineGun.create(module, local_position)
 				modules.add_child(instance)
 
-			"Armor":
-				max_health += module.extra_health
-
-	health = max_health
+	health = Globals.max_health
 
 func _physics_process(delta):
 	acceleration = Vector2.ZERO
@@ -94,7 +90,7 @@ func calculate_steering(delta):
 
 func take_damage(damage: int):
 	health -= damage
-	health_changed.emit(float(health)/max_health)
+	health_changed.emit(float(health)/Globals.max_health)
 	
 	if health <= 0:
 		die()

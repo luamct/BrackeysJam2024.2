@@ -10,6 +10,7 @@ const LEVEL_SCENE: PackedScene = preload("res://scenes/level.tscn")
 @onready var shop_panel: ShopPanel = %ShopPanel
 @onready var shop_module_sprite: Sprite2D = $ShopModuleSprite
 @onready var currency_label: Label = %CurrencyLabel
+@onready var vehicle_stats_label: Label = %VehicleStatsLabel
 @onready var currency_skull: AnimatedSprite2D = $CanvasLayer/CurrencyContainer/CurrencySkull
 
 # Game mutable state
@@ -20,6 +21,7 @@ func _ready() -> void:
 	currency_label.text = str(Globals.currency)
 	currency_skull.play("idle")
 	add_modules_to_tilemap()
+	update_vehicle_stats()
 
 func add_modules_to_tilemap():
 	for coords in Globals.grid:
@@ -43,11 +45,13 @@ func _input(event: InputEvent):
 				if !Globals.grid.has(tile_coords):
 					if Globals.currency >= selected_module.cost:
 						tile_map.set_cell(tile_coords, SOURCE_ID, selected_module.atlas_coords)
-						Globals.grid[tile_coords] = selected_module
+						Globals.add_module(selected_module, tile_coords)
 
 						Globals.currency -= selected_module.cost
 						currency_label.text = str(Globals.currency)
 						currency_skull.play("buy")
+						
+						update_vehicle_stats()
 					else: 
 						print("Not enough money!")
 				else:
@@ -72,3 +76,10 @@ func _input(event: InputEvent):
 
 	if Input.is_key_pressed(KEY_ESCAPE):
 		get_tree().quit()
+
+func update_vehicle_stats():
+	var stats_text = ""
+	stats_text += "Health: " + str(Globals.max_health) + "\n"
+	stats_text += "Engine Power: ?\n"# + str(Globals.max_health)
+	stats_text += "Max Speed: ?\n" #+ str(Globals.max_health)
+	vehicle_stats_label.text = stats_text
