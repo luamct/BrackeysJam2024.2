@@ -114,3 +114,7 @@ shape = SubResource("CircleShape2D_i7xug")
 
 [node name="AttackCooldown" type="Timer" parent="."]
 one_shot = true
+
+[node name="ScanCooldown" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true

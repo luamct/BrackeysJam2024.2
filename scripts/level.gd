@@ -65,18 +65,20 @@ func place_enemies():
 	var length = level_config.areas.reduce(func(total_length, a): return a.length + total_length, 0)
 	enemy_noise.height = height
 	enemy_noise.width = length
-	enemy_noise.noise.frequency = enemy_mobs_density
-	
-	print(length, " x ", height)
+	var enemy_threshold = lerpf(-0.6, 0.6, enemy_noise.color_ramp.offsets[1])
+	#print("threshold ", enemy_threshold)
+	#print("Offsets: ", enemy_noise.color_ramp.offsets)
+	#print(length, " x ", height)
 
-	# Noise values, just for statisticsn on the range
+	# Noise values, just for statistics on the range
 	var values = []
-	
+
+	var half_height = level_config.height/2
 	var starting_x = 0
 	for area in level_config.areas:
 		if area.type == LevelAreaResource.AreaType.STORM:
 			for area_x in area.length:
-				for y in height:
+				for y in range(-half_height, half_height):
 					var x = starting_x + area_x
 					var value = enemy_noise.noise.get_noise_2d(x, y)
 					values.append(value)
@@ -125,3 +127,6 @@ func load_garage_scene():
 	
 func on_health_changed(percentage: float):
 	health_bar.value = percentage
+
+func _process(_delta):
+	%FPSLabel.text = "FPS: " + str(Engine.get_frames_per_second())

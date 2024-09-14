@@ -13,17 +13,27 @@ const engagement_distance: int = 300
 @onready var area: Area2D = $Area2D
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var attack_cooldown: Timer = $AttackCooldown
+@onready var scan_cooldown: Timer = $ScanCooldown
 
 var player: Vehicle
 var meele_range: bool = false
 var dead: bool = false
+var alert: bool = false
 
 func _ready():
 	area.body_entered.connect(on_body_entered)
 	area.body_exited.connect(on_body_exited)
 	player = get_tree().get_first_node_in_group("player")
 	attack_cooldown.wait_time = attack_speed
+	scan_cooldown.timeout.connect(on_scan_timeout)
 
+func on_scan_timeout():
+	var distance = position.distance_to(player.position)
+	if distance < engagement_distance:
+		alert = true
+		scan_cooldown.stop()
+		
+	
 func on_body_entered(body: Node):
 	if body is Bullet:
 		health -= body.damage
@@ -47,19 +57,19 @@ func die():
 	area.set_deferred("monitoring", false)
 
 func _process(delta: float) -> void:
-	if dead: 
+	if not alert or dead: 
 		return
 
-	var distance = position.distance_to(player.position)
 	if meele_range :
 		if attack_cooldown.is_stopped():
 			sprite.play("attack")  # Replace with attack animation
 			attack_cooldown.start()
 			player.take_damage(damage)
-		#else:
-			#sprite.play("idle")
-	
-	elif distance < engagement_distance:
+
+		return
+
+	var distance = position.distance_to(player.position)
+	if distance < engagement_distance:
 		if sprite.animation != "walking":
 			sprite.play("walking")
 		
