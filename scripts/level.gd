@@ -7,6 +7,8 @@ const STORM_TILE_COORD = Vector2i(1, 0)
 const MOUNTAIN_TILE_COORD = Vector2i(2, 0)
 const START_TILE_COORD = Vector2i(3, 0)
 const GOAL_TILE_COORD = Vector2i(4, 0)
+const LING = preload("res://scenes/enemies/ling.tscn")
+const BRUTE = preload("res://scenes/enemies/brute.tscn")
 
 const types_to_tiles = {
 	LevelAreaResource.AreaType.SAND: SAND_TILE_COORD,
@@ -14,6 +16,13 @@ const types_to_tiles = {
 	LevelAreaResource.AreaType.START: START_TILE_COORD,
 	LevelAreaResource.AreaType.GOAL: GOAL_TILE_COORD,
 }
+
+# Enemy logic
+@export var enemy_noise: NoiseTexture2D
+var enemy_mobs_size: float = -0.3     # The lower, the smaller the mobs, limits -0.6, 0.6
+var enemy_mobs_density: float = 0.02  # The lower, the lower the density of mobs, limits (0, 1)
+
+var enemies: Array[Enemy]
 
 @onready var vehicle: Vehicle = $Vehicle
 @onready var health_bar: ProgressBar = %HealthBar
@@ -47,6 +56,49 @@ func _ready():
 		starting_x += level_area.length
 
 	goal_area.body_entered.connect(on_body_entered_goal_area)
+	
+	place_enemies()
+
+func place_enemies():
+	var height = level_config.height
+	var length = level_config.areas.reduce(func(total_length, a): return a.length + total_length, 0)
+	enemy_noise.height = height
+	enemy_noise.width = length
+	enemy_noise.noise.frequency = enemy_mobs_density
+	
+	print(length, " x ", height)
+
+	# Noise values, just for statisticsn on the range
+	var values = []
+	
+	var starting_x = 0
+	for area in level_config.areas:
+		if area.type == LevelAreaResource.AreaType.STORM:
+			for area_x in area.length:
+				for y in height:
+					var x = starting_x + area_x
+					var value = enemy_noise.noise.get_noise_2d(x, y)
+					values.append(value)
+
+					if value < enemy_mobs_size:
+						var enemy = LING.instantiate()
+						enemy.position = Vector2(x, y) * tile_size
+						enemy.death.connect(on_enemy_died)
+						add_child(enemy)
+						
+						enemies.append(enemy)
+
+		starting_x += area.length
+			
+			
+	print("Total enemies added: ", enemies.size())
+	print("Noise range: (%f, %f)" % [values.min(), values.max()])
+			
+		
+	
+
+func on_enemy_died(enemy: Enemy):
+	enemies.erase(enemy)
 
 func on_body_entered_goal_area(body: Node2D):
 	if body is Vehicle:

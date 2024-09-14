@@ -7,7 +7,7 @@ const BULLET_SCENE: PackedScene = preload("res://scenes/bullet.tscn")
 @onready var timer: Timer = $CooldownTimer
 
 var grid_position: Vector2
-var enemy_manager: EnemyManager
+var level: Level
 
 var bullet_impulse: int = 500
 var max_range: int = 300
@@ -25,18 +25,19 @@ func _ready():
 	timer.wait_time = fire_rate
 	timer.timeout.connect(on_cooldown_timeout)
 	
-	enemy_manager = get_tree().get_first_node_in_group("enemy_manager")
+	level = get_tree().get_first_node_in_group("level")
 	
 func on_cooldown_timeout():
 	var target_enemy: Enemy = null
 	var target_distance: float = 10e10
 	
-	for enemy: Enemy in enemy_manager.enemies:
+	#print(level.enemies.size())
+	for enemy: Enemy in level.enemies:
 		var distance: float = enemy.global_position.distance_to(global_position)
 		if distance < target_distance && distance <= max_range:
 			target_enemy = enemy
 			target_distance = distance
-	
+
 	if target_enemy == null:
 		return
 
