@@ -39,6 +39,7 @@ script = ExtResource("2_03jvu")
 city_name = "Doomspire"
 reward = 10
 height = 100
+storm_damage = 2
 areas = Array[ExtResource("3_ejvrx")]([SubResource("Resource_rwoiw"), SubResource("Resource_6pjob"), SubResource("Resource_6wf8c"), SubResource("Resource_8bp2c"), SubResource("Resource_26ctg"), SubResource("Resource_m84iu")])
 
 [sub_resource type="Resource" id="Resource_jxkky"]
@@ -86,6 +87,7 @@ script = ExtResource("2_03jvu")
 city_name = "Hezkolah"
 reward = 12
 height = 100
+storm_damage = 3
 areas = Array[ExtResource("3_ejvrx")]([SubResource("Resource_jxkky"), SubResource("Resource_p6vd6"), SubResource("Resource_hwf0g"), SubResource("Resource_yas4c"), SubResource("Resource_w6h5m"), SubResource("Resource_d1ljo"), SubResource("Resource_3q5kj"), SubResource("Resource_7ifxg")])
 
 [sub_resource type="Resource" id="Resource_asosy"]
@@ -118,6 +120,7 @@ script = ExtResource("2_03jvu")
 city_name = "Cuiabah"
 reward = 15
 height = 100
+storm_damage = 4
 areas = Array[ExtResource("3_ejvrx")]([SubResource("Resource_asosy"), SubResource("Resource_k63ty"), SubResource("Resource_7tngg"), SubResource("Resource_ju33j"), SubResource("Resource_8npkn")])
 
 [node name="Globals" type="Node2D"]

@@ -32,6 +32,7 @@ var enemies: Array[Enemy]
 @onready var tile_map: TileMapLayer = $TileMapLayer
 @onready var goal_area: Area2D = $GoalArea
 @onready var currency_label: Label = %CurrencyLabel
+@onready var storm_damage_timer: Timer = $StormDamageTimer
 @onready var tile_size: int = tile_map.tile_set.tile_size.x
 @onready var garage_scene: PackedScene = load("res://scenes/garage.tscn")
 @onready var victory_scene: PackedScene = load("res://scenes/victory.tscn")
@@ -65,6 +66,7 @@ func _ready():
 		starting_x += level_area.length
 
 	goal_area.body_entered.connect(on_body_entered_goal_area)
+	storm_damage_timer.timeout.connect(on_storm_damage_timeout)
 	
 	place_enemies()
 
@@ -124,9 +126,11 @@ func add_storm_areas(x, length):
 	
 func on_entering_storm(body):
 	print("Entering storm")
+	storm_damage_timer.start()
 	
 func on_leaving_storm(body):
 	print("Leaving storm")
+	storm_damage_timer.stop()
 	
 func on_enemy_died(enemy: Enemy):
 	enemies.erase(enemy)
@@ -156,3 +160,6 @@ func on_health_changed(percentage: float):
 
 func _process(_delta):
 	%FPSLabel.text = "FPS: " + str(Engine.get_frames_per_second())
+
+func on_storm_damage_timeout():
+	vehicle.take_damage(level_config.storm_damage)
