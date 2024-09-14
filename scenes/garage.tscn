@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=4 uid="uid://dm3igb3h34frm"]
+[gd_scene load_steps=49 format=4 uid="uid://dm3igb3h34frm"]
 
 [ext_resource type="Script" path="res://scripts/garage.gd" id="1_w1bvq"]
 [ext_resource type="PackedScene" uid="uid://cckyy7pvonvg7" path="res://scenes/old_vehicle.tscn" id="2_goglh"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://d4jl77545mv3s" path="res://assets/button_done_click.png" id="13_jlys1"]
 [ext_resource type="Texture2D" uid="uid://bkkjnc326kcmx" path="res://assets/button_done_hover.png" id="14_8e345"]
 [ext_resource type="FontFile" uid="uid://fnj6ckee37ri" path="res://assets/fonts/PixelifySans-Regular.ttf" id="14_mal36"]
+[ext_resource type="FontFile" uid="uid://b4hwbumym6qi3" path="res://assets/fonts/PixelifySans-Medium.ttf" id="18_20x6b"]
 [ext_resource type="Texture2D" uid="uid://w3vbd228s3xb" path="res://assets/currency.png" id="19_03sgc"]
 [ext_resource type="Texture2D" uid="uid://by3cdh1oihhh1" path="res://assets/skully.png" id="19_obdgl"]
 
@@ -46,7 +47,7 @@ texture_margin_bottom = 10.0
 region_rect = Rect2(41, 182, 127, 42)
 
 [sub_resource type="LabelSettings" id="LabelSettings_kwn16"]
-line_spacing = 1.0
+line_spacing = -2.0
 font = ExtResource("14_mal36")
 font_size = 12
 font_color = Color(0, 0, 0, 1)
@@ -155,6 +156,12 @@ animations = [{
 texture = ExtResource("12_4wk4u")
 region_rect = Rect2(318, 0, 108, 134)
 
+[sub_resource type="LabelSettings" id="LabelSettings_3ayq8"]
+line_spacing = 0.0
+font = ExtResource("18_20x6b")
+font_size = 12
+shadow_size = 0
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_3ar6p"]
 atlas = ExtResource("19_obdgl")
 region = Rect2(0, 0, 22, 34)
@@ -235,6 +242,7 @@ script = ExtResource("1_w1bvq")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="background" type="AnimatedSprite2D" parent="Camera2D"]
+z_index = -1
 sprite_frames = SubResource("SpriteFrames_t7460")
 
 [node name="vehicle" parent="Camera2D" instance=ExtResource("2_goglh")]
@@ -243,7 +251,7 @@ visible = false
 [node name="BaseTileMapLayer" type="TileMapLayer" parent="."]
 y_sort_enabled = true
 position = Vector2(0, -24)
-tile_map_data = PackedByteArray("AAD8/wAAAAABAAAAAAD8/wEAAAACAAAAAAD8/wIAAAADAAAAAAD8/wMAAAAAAAAAAAD9/wAAAAABAAAAAAD9/wEAAAACAAAAAAD9/wIAAAABAAAAAAD9/wMAAAAAAAAAAAD+/wAAAAABAAAAAAD+/wEAAAADAAAAAAD+/wIAAAABAAAAAAD+/wMAAAADAAAAAAD//wAAAAACAAAAAAD//wEAAAAAAAAAAAD//wIAAAADAAAAAAD//wMAAAACAAAAAAAAAAAAAAABAAAAAAAAAAEAAAADAAAAAAAAAAIAAAAAAAAAAAAAAAMAAAABAAAAAAA=")
+tile_map_data = PackedByteArray("AAD8/wAAAAABAAAAAAD8/wIAAAADAAAAAAD8/wMAAAAAAAAAAAD9/wAAAAABAAAAAAD9/wEAAAACAAAAAAD9/wIAAAABAAAAAAD9/wMAAAAAAAAAAAD+/wAAAAABAAAAAAD+/wEAAAADAAAAAAD+/wIAAAABAAAAAAD+/wMAAAADAAAAAAD//wAAAAACAAAAAAD//wEAAAAAAAAAAAD//wIAAAADAAAAAAD//wMAAAACAAAAAAAAAAAAAAABAAAAAAAAAAEAAAADAAAAAAAAAAIAAAAAAAAAAAAAAAMAAAABAAAAAAD8/wQAAAAKAAEAAAD//wQAAAAKAAEAAAD7/wEAAAAKAAEAAAD7/wQAAAAKAAEAAAD8/wEAAAACAAAAAAA=")
 tile_set = ExtResource("3_kwkrj")
 
 [node name="ModulesTileMapLayer" type="TileMapLayer" parent="."]
@@ -347,28 +355,33 @@ label_settings = SubResource("LabelSettings_1xquc")
 vertical_alignment = 1
 
 [node name="CurrencySkull" type="AnimatedSprite2D" parent="CanvasLayer/CurrencyContainer"]
-position = Vector2(23, 20)
+position = Vector2(20, 20)
 sprite_frames = SubResource("SpriteFrames_ja0da")
 animation = &"idle"
 
 [node name="VehicleStats" type="Panel" parent="CanvasLayer"]
-offset_left = 318.0
+offset_left = 288.0
 offset_right = 426.0
-offset_bottom = 134.0
+offset_bottom = 107.0
 theme = ExtResource("11_lsrfh")
 theme_override_styles/panel = SubResource("StyleBoxTexture_agbjn")
 
 [node name="VehicleStatsLabel" type="Label" parent="CanvasLayer/VehicleStats"]
 unique_name_in_owner = true
-layout_mode = 0
-offset_left = 25.0
-offset_top = 8.0
-offset_right = 172.0
-offset_bottom = 107.0
-scale = Vector2(0.5, 0.5)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.184397
+anchor_top = 0.046729
+anchor_right = 0.957447
+anchor_bottom = 0.785047
+grow_horizontal = 2
+grow_vertical = 2
 text = "Health: ?
 Engine Power: ?
 Max Speed: ?"
+label_settings = SubResource("LabelSettings_3ayq8")
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer"]
 position = Vector2(47, 183)
