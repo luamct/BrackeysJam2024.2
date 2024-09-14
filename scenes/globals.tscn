@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c8iol6mkifcpk"]
+[gd_scene load_steps=26 format=3 uid="uid://c8iol6mkifcpk"]
 
 [ext_resource type="Script" path="res://scripts/globals.gd" id="1_g2v84"]
 [ext_resource type="Script" path="res://scripts/level_config_resource.gd" id="2_03jvu"]
@@ -12,24 +12,34 @@ length = 1
 [sub_resource type="Resource" id="Resource_6pjob"]
 script = ExtResource("3_ejvrx")
 type = 1
-length = 50
+length = 30
 
 [sub_resource type="Resource" id="Resource_6wf8c"]
 script = ExtResource("3_ejvrx")
 type = 2
 length = 50
 
+[sub_resource type="Resource" id="Resource_8bp2c"]
+script = ExtResource("3_ejvrx")
+type = 1
+length = 30
+
+[sub_resource type="Resource" id="Resource_26ctg"]
+script = ExtResource("3_ejvrx")
+type = 2
+length = 100
+
 [sub_resource type="Resource" id="Resource_m84iu"]
 script = ExtResource("3_ejvrx")
 type = 3
-length = 50
+length = 1
 
 [sub_resource type="Resource" id="Resource_tx7wv"]
 script = ExtResource("2_03jvu")
 city_name = "Doomspire"
 reward = 10
 height = 100
-areas = Array[ExtResource("3_ejvrx")]([SubResource("Resource_rwoiw"), SubResource("Resource_6pjob"), SubResource("Resource_6wf8c"), SubResource("Resource_m84iu")])
+areas = Array[ExtResource("3_ejvrx")]([SubResource("Resource_rwoiw"), SubResource("Resource_6pjob"), SubResource("Resource_6wf8c"), SubResource("Resource_8bp2c"), SubResource("Resource_26ctg"), SubResource("Resource_m84iu")])
 
 [sub_resource type="Resource" id="Resource_jxkky"]
 script = ExtResource("3_ejvrx")
@@ -39,34 +49,44 @@ length = 1
 [sub_resource type="Resource" id="Resource_p6vd6"]
 script = ExtResource("3_ejvrx")
 type = 1
-length = 100
+length = 20
 
 [sub_resource type="Resource" id="Resource_hwf0g"]
 script = ExtResource("3_ejvrx")
 type = 2
-length = 200
+length = 50
 
 [sub_resource type="Resource" id="Resource_yas4c"]
 script = ExtResource("3_ejvrx")
 type = 1
-length = 100
+length = 20
 
 [sub_resource type="Resource" id="Resource_w6h5m"]
 script = ExtResource("3_ejvrx")
 type = 2
-length = 200
+length = 70
+
+[sub_resource type="Resource" id="Resource_d1ljo"]
+script = ExtResource("3_ejvrx")
+type = 1
+length = 20
+
+[sub_resource type="Resource" id="Resource_3q5kj"]
+script = ExtResource("3_ejvrx")
+type = 2
+length = 100
 
 [sub_resource type="Resource" id="Resource_7ifxg"]
 script = ExtResource("3_ejvrx")
 type = 3
-length = 50
+length = 1
 
 [sub_resource type="Resource" id="Resource_upqfl"]
 script = ExtResource("2_03jvu")
 city_name = "Hezkolah"
-reward = 10
+reward = 12
 height = 100
-areas = Array[ExtResource("3_ejvrx")]([SubResource("Resource_jxkky"), SubResource("Resource_p6vd6"), SubResource("Resource_hwf0g"), SubResource("Resource_yas4c"), SubResource("Resource_w6h5m"), SubResource("Resource_7ifxg")])
+areas = Array[ExtResource("3_ejvrx")]([SubResource("Resource_jxkky"), SubResource("Resource_p6vd6"), SubResource("Resource_hwf0g"), SubResource("Resource_yas4c"), SubResource("Resource_w6h5m"), SubResource("Resource_d1ljo"), SubResource("Resource_3q5kj"), SubResource("Resource_7ifxg")])
 
 [sub_resource type="Resource" id="Resource_asosy"]
 script = ExtResource("3_ejvrx")
@@ -76,28 +96,33 @@ length = 1
 [sub_resource type="Resource" id="Resource_k63ty"]
 script = ExtResource("3_ejvrx")
 type = 1
-length = 50
+length = 30
 
 [sub_resource type="Resource" id="Resource_7tngg"]
 script = ExtResource("3_ejvrx")
 type = 2
+length = 150
+
+[sub_resource type="Resource" id="Resource_ju33j"]
+script = ExtResource("3_ejvrx")
+type = 1
 length = 50
 
 [sub_resource type="Resource" id="Resource_8npkn"]
 script = ExtResource("3_ejvrx")
 type = 3
-length = 50
+length = 1
 
 [sub_resource type="Resource" id="Resource_42rd1"]
 script = ExtResource("2_03jvu")
 city_name = "Cuiabah"
 reward = 15
 height = 100
-areas = Array[ExtResource("3_ejvrx")]([SubResource("Resource_asosy"), SubResource("Resource_k63ty"), SubResource("Resource_7tngg"), SubResource("Resource_8npkn")])
+areas = Array[ExtResource("3_ejvrx")]([SubResource("Resource_asosy"), SubResource("Resource_k63ty"), SubResource("Resource_7tngg"), SubResource("Resource_ju33j"), SubResource("Resource_8npkn")])
 
 [node name="Globals" type="Node2D"]
 script = ExtResource("1_g2v84")
 max_health = 100
-engine_power = 500
-currency = 20
+engine_power = 250
+currency = 10
 levels = Array[ExtResource("2_03jvu")]([SubResource("Resource_tx7wv"), SubResource("Resource_upqfl"), SubResource("Resource_42rd1")])

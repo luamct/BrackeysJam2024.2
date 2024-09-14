@@ -105,10 +105,9 @@ func place_enemies():
 
 		starting_x += area.length
 
-			
 	print("Total enemies added: ", enemies.size())
-	print("Noise range: (%f, %f)" % [values.min(), values.max()])
-	
+	#print("Noise range: (%f, %f)" % [values.min(), values.max()])
+
 
 func on_enemy_died(enemy: Enemy):
 	enemies.erase(enemy)
@@ -116,15 +115,16 @@ func on_enemy_died(enemy: Enemy):
 func on_body_entered_goal_area(body: Node2D):
 	if body is Vehicle:
 		vehicle.disable_controls()
-		
+
 		Globals.currency += level_config.reward
 		currency_label.text = str(Globals.currency)
 		Globals.current_level += 1
-		
+
 		await get_tree().create_timer(2.0).timeout
 		if Globals.no_next_level():
 			#Add Victory screen!
 			get_tree().change_scene_to_packed(victory_scene)
+			return
 			#get_tree().quit()
 			
 		call_deferred("load_garage_scene")
@@ -135,5 +135,5 @@ func load_garage_scene():
 func on_health_changed(percentage: float):
 	health_bar.value = percentage
 
-#func _process(_delta):
-	#%FPSLabel.text = "FPS: " + str(Engine.get_frames_per_second())
+func _process(_delta):
+	%FPSLabel.text = "FPS: " + str(Engine.get_frames_per_second())

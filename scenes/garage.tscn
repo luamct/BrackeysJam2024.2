@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=4 uid="uid://dm3igb3h34frm"]
+[gd_scene load_steps=48 format=4 uid="uid://dm3igb3h34frm"]
 
 [ext_resource type="Script" path="res://scripts/garage.gd" id="1_w1bvq"]
 [ext_resource type="PackedScene" uid="uid://cckyy7pvonvg7" path="res://scenes/old_vehicle.tscn" id="2_goglh"]
@@ -17,7 +17,6 @@
 [ext_resource type="Texture2D" uid="uid://d4jl77545mv3s" path="res://assets/button_done_click.png" id="13_jlys1"]
 [ext_resource type="Texture2D" uid="uid://bkkjnc326kcmx" path="res://assets/button_done_hover.png" id="14_8e345"]
 [ext_resource type="FontFile" uid="uid://fnj6ckee37ri" path="res://assets/fonts/PixelifySans-Regular.ttf" id="14_mal36"]
-[ext_resource type="FontFile" uid="uid://b4hwbumym6qi3" path="res://assets/fonts/PixelifySans-Medium.ttf" id="18_20x6b"]
 [ext_resource type="Texture2D" uid="uid://w3vbd228s3xb" path="res://assets/currency.png" id="19_03sgc"]
 [ext_resource type="Texture2D" uid="uid://by3cdh1oihhh1" path="res://assets/skully.png" id="19_obdgl"]
 
@@ -158,7 +157,7 @@ region_rect = Rect2(318, 0, 108, 134)
 
 [sub_resource type="LabelSettings" id="LabelSettings_3ayq8"]
 line_spacing = 0.0
-font = ExtResource("18_20x6b")
+font = ExtResource("14_mal36")
 font_size = 12
 shadow_size = 0
 

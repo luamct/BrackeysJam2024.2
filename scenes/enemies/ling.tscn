@@ -95,7 +95,7 @@ radius = 3.0
 [node name="ling" type="Node2D"]
 z_index = 5
 script = ExtResource("1_tc2ek")
-health = 3
+health = 5
 speed = 50
 attack_speed = 1.0
 damage = 2
