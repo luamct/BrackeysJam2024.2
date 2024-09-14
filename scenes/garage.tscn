@@ -236,7 +236,7 @@ script = ExtResource("1_w1bvq")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Camera2D"]
+[node name="background" type="AnimatedSprite2D" parent="Camera2D"]
 sprite_frames = SubResource("SpriteFrames_t7460")
 
 [node name="vehicle" parent="Camera2D" instance=ExtResource("2_goglh")]
@@ -351,9 +351,7 @@ vertical_alignment = 1
 [node name="CurrencySkull" type="AnimatedSprite2D" parent="CanvasLayer/CurrencyContainer"]
 position = Vector2(23, 20)
 sprite_frames = SubResource("SpriteFrames_ja0da")
-animation = &"buy"
-frame = 5
-frame_progress = 1.0
+animation = &"idle"
 
 [node name="VehicleStats" type="Panel" parent="CanvasLayer"]
 offset_left = 318.0
@@ -383,5 +381,8 @@ animation = &"skully_talk"
 visible = false
 modulate = Color(1, 1, 1, 0.603922)
 texture = SubResource("AtlasTexture_s3xmq")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="pressed" from="CanvasLayer/DoneButton" to="." method="_on_done_button_pressed"]

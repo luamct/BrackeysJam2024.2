@@ -98,7 +98,8 @@ func take_damage(damage: int):
 func die():
 	# Play death animation
 	# Show retry prompt
-	get_tree().quit()
+	get_tree().change_scene_to_file("res://scenes/defeat.tscn")
+	#get_tree().quit()
 
 func disable_controls():
 	controls_disabled = true
