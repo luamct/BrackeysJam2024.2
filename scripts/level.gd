@@ -21,6 +21,7 @@ const types_to_tiles = {
 @export var enemy_noise: NoiseTexture2D
 var enemy_mobs_size: float = -0.3     # The lower, the smaller the mobs, limits -0.6, 0.6
 var enemy_mobs_density: float = 0.02  # The lower, the lower the density of mobs, limits (0, 1)
+var brute_probability: float = 0.2
 
 var enemies: Array[Enemy]
 
@@ -81,7 +82,12 @@ func place_enemies():
 					values.append(value)
 
 					if value < enemy_mobs_size:
-						var enemy = LING.instantiate()
+						var enemy = null
+						if randf() < brute_probability:
+							enemy = BRUTE.instantiate()
+						else:
+							enemy =  LING.instantiate()
+							
 						enemy.position = Vector2(x, y) * tile_size
 						enemy.death.connect(on_enemy_died)
 						add_child(enemy)
@@ -89,12 +95,10 @@ func place_enemies():
 						enemies.append(enemy)
 
 		starting_x += area.length
-			
+
 			
 	print("Total enemies added: ", enemies.size())
 	print("Noise range: (%f, %f)" % [values.min(), values.max()])
-			
-		
 	
 
 func on_enemy_died(enemy: Enemy):
