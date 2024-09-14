@@ -10,6 +10,7 @@ func _on_exit_pressed() -> void:
 	get_tree().quit()
 
 func _on_playagain_pressed() -> void:
+	Globals.reset()
 	get_tree().change_scene_to_packed(garage_scene)
 	
 func _input(_event: InputEvent):

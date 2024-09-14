@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://d0go01ppax4qt"]
+[gd_scene load_steps=14 format=3 uid="uid://diqenr4koo7w6"]
 
 [ext_resource type="Script" path="res://tutorial.gd" id="1_80nx4"]
 [ext_resource type="Texture2D" uid="uid://b8stx1mgp52ym" path="res://assets/tutorial_panel.png" id="2_g7kgv"]
@@ -162,11 +162,11 @@ offset_bottom = 55.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Welcome to HELL !!
-Your mission as the meat waggon is to transport
+Your mission, as the meat waggon, is to deliver
 crucial information between hell cities. 
-Each successful run you will be rewarded with human souls.
-But beware, a storm is brewing in the distance.
-When ready, hit the arrow.
+Each successful run will be rewarded with human souls.
+But beware, a storm brews in the horizon,
+and crossing it will take its toll!
 
 Control your waggon with W,A,S,D"
 label_settings = SubResource("LabelSettings_gcuwx")

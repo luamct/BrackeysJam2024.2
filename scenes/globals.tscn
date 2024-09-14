@@ -125,7 +125,7 @@ areas = Array[ExtResource("3_ejvrx")]([SubResource("Resource_asosy"), SubResourc
 
 [node name="Globals" type="Node2D"]
 script = ExtResource("1_g2v84")
-max_health = 100
-engine_power = 250
-currency = 10
+starting_health = 100
+starting_engine_power = 250
+starting_currency = 10
 levels = Array[ExtResource("2_03jvu")]([SubResource("Resource_tx7wv"), SubResource("Resource_upqfl"), SubResource("Resource_42rd1")])
