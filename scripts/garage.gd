@@ -24,7 +24,7 @@ func _ready() -> void:
 	add_modules_to_tilemap()
 	update_vehicle_stats()
 	
-func _process(delta):
+func _process(_delta):
 	if timer.is_stopped():
 		currency_skull.play("idle")
 		timer.start(3)
