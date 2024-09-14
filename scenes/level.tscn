@@ -1,10 +1,11 @@
-[gd_scene load_steps=33 format=3 uid="uid://kygcv1vlqjgb"]
+[gd_scene load_steps=35 format=3 uid="uid://kygcv1vlqjgb"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_0nox1"]
 [ext_resource type="Texture2D" uid="uid://bpgd1ftyq1bb4" path="res://assets/basic-terrain-tiles.png" id="4_8bh6c"]
 [ext_resource type="PackedScene" uid="uid://y1x11kmtoe4m" path="res://scenes/vehicle.tscn" id="5_tcc75"]
 [ext_resource type="Script" path="res://scripts/enemy_manager.gd" id="6_wlepa"]
 [ext_resource type="Theme" uid="uid://cfefdawkscps1" path="res://assets/garage_panels.tres" id="9_l4nk1"]
+[ext_resource type="FontFile" uid="uid://cw7igdhd0rowb" path="res://assets/fonts/PixelifySans-Bold.ttf" id="10_0ki8t"]
 [ext_resource type="Texture2D" uid="uid://dnbg2ybvmtpmw" path="res://assets/lifebar.png" id="10_nd7tv"]
 [ext_resource type="Texture2D" uid="uid://cfsyh14fjiu55" path="res://assets/garagem_panels.png" id="11_u2jnv"]
 [ext_resource type="FontFile" uid="uid://ccmlo17b67pvu" path="res://assets/fonts/DigitalStrip2BB_Bold.otf" id="12_thd7d"]
@@ -150,6 +151,38 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="LabelSettings" id="LabelSettings_o0b3t"]
+font = ExtResource("10_0ki8t")
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_klq63"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Vehicle/storm:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Vehicle/storm:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.972549, 1, 0.164706, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_x84xk"]
 resource_name = "storm"
 length = 6.5
@@ -178,33 +211,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.823529), Color(1, 1, 1, 0), Color(1, 1, 1, 0.172549), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 0.823529), Color(1, 1, 1, 0), Color(1, 1, 1, 0.823529), Color(1, 1, 1, 0), Color(1, 1, 1, 0.823529), Color(1, 1, 1, 0), Color(1, 1, 1, 0.172549), Color(1, 1, 1, 0), Color(1, 1, 1, 0.823529), Color(1, 1, 1, 0), Color(1, 1, 1, 0.172549), Color(1, 1, 1, 0), Color(1, 1, 1, 0.823529), Color(1, 1, 1, 0), Color(1, 1, 1, 0.172549), Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_klq63"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Vehicle/storm:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Vehicle/storm:color")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.972549, 1, 0.164706, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_t4hn0"]
@@ -297,6 +303,15 @@ unique_name_in_owner = true
 offset_right = 40.0
 offset_bottom = 21.0
 text = "FPS: ?"
+
+[node name="NextCityLabel" type="Label" parent="CanvasLayer"]
+unique_name_in_owner = true
+offset_left = 11.0
+offset_top = 13.0
+offset_right = 104.0
+offset_bottom = 34.0
+text = "Next City: ?"
+label_settings = SubResource("LabelSettings_o0b3t")
 
 [node name="StormDamageTimer" type="Timer" parent="."]
 
