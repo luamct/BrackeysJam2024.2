@@ -10,6 +10,7 @@ const GOAL_TILE_COORD = Vector2i(4, 0)
 const NOISE_RANGE = 0.7
 const LING = preload("res://scenes/enemies/ling.tscn")
 const BRUTE = preload("res://scenes/enemies/brute.tscn")
+const STORM_AREA = preload("res://scenes/storm_area.tscn")
 
 const types_to_tiles = {
 	LevelAreaResource.AreaType.SAND: SAND_TILE_COORD,
@@ -84,6 +85,8 @@ func place_enemies():
 	var starting_x = 0
 	for area in level_config.areas:
 		if area.type == LevelAreaResource.AreaType.STORM:
+			add_storm_areas(starting_x, area.length)
+			
 			for area_x in area.length:
 				for y in range(-half_height, half_height):
 					var x = starting_x + area_x
@@ -108,7 +111,23 @@ func place_enemies():
 	print("Total enemies added: ", enemies.size())
 	#print("Noise range: (%f, %f)" % [values.min(), values.max()])
 
-
+func add_storm_areas(x, length):
+	var enter_area = STORM_AREA.instantiate()
+	enter_area.position.x = x * tile_size
+	enter_area.body_entered.connect(on_entering_storm)
+	add_child(enter_area)
+	
+	var leave_area = STORM_AREA.instantiate()
+	leave_area.position.x = (x + length) * tile_size
+	leave_area.body_entered.connect(on_leaving_storm)
+	add_child(leave_area)
+	
+func on_entering_storm(body):
+	print("Entering storm")
+	
+func on_leaving_storm(body):
+	print("Leaving storm")
+	
 func on_enemy_died(enemy: Enemy):
 	enemies.erase(enemy)
 
