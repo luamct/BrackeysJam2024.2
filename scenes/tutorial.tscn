@@ -1,0 +1,189 @@
+[gd_scene load_steps=14 format=3 uid="uid://d0go01ppax4qt"]
+
+[ext_resource type="Script" path="res://tutorial.gd" id="1_80nx4"]
+[ext_resource type="Texture2D" uid="uid://b8stx1mgp52ym" path="res://assets/tutorial_panel.png" id="2_g7kgv"]
+[ext_resource type="Texture2D" uid="uid://by3cdh1oihhh1" path="res://assets/skully.png" id="3_od6fv"]
+[ext_resource type="FontFile" uid="uid://fnj6ckee37ri" path="res://assets/fonts/PixelifySans-Regular.ttf" id="4_0nnpb"]
+[ext_resource type="Texture2D" uid="uid://mulwe1gajsrt" path="res://assets/tutorial_arrow_neutral.png" id="5_t8pf7"]
+[ext_resource type="Texture2D" uid="uid://tf204i24p3uq" path="res://assets/tutorial_arrow_click.png" id="6_bug4d"]
+[ext_resource type="Texture2D" uid="uid://bhh1brxtf1pou" path="res://assets/tutorial_arrow_hover.png" id="7_63w5p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sla0u"]
+atlas = ExtResource("3_od6fv")
+region = Rect2(0, 0, 22, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_atxlu"]
+atlas = ExtResource("3_od6fv")
+region = Rect2(22, 0, 22, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f34ui"]
+atlas = ExtResource("3_od6fv")
+region = Rect2(44, 0, 22, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5xxqt"]
+atlas = ExtResource("3_od6fv")
+region = Rect2(66, 0, 22, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f6uqa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sla0u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_atxlu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f34ui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f34ui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5xxqt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_atxlu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f34ui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5xxqt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sla0u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sla0u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_atxlu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f34ui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5xxqt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_atxlu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f34ui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5xxqt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sla0u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sla0u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_atxlu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f34ui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5xxqt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_atxlu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f34ui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5xxqt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sla0u")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gcuwx"]
+line_spacing = -1.0
+font = ExtResource("4_0nnpb")
+font_size = 11
+font_color = Color(0, 0, 0, 1)
+
+[node name="tutorial" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_80nx4")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0187793
+anchor_top = -0.0291667
+anchor_right = 1.01878
+anchor_bottom = 1.02917
+offset_right = -3.05176e-05
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(35, 51)
+scale = Vector2(2.27273, 2.27273)
+sprite_frames = SubResource("SpriteFrames_f6uqa")
+autoplay = "default"
+frame = 19
+frame_progress = 0.704506
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(224, 107)
+scale = Vector2(1.0939, 0.916667)
+texture = ExtResource("2_g7kgv")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -114.0
+offset_top = -86.0
+offset_right = 201.0
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Welcome to HELL !!
+Your mission as the meat waggon is to transport
+crucial information between hell cities. 
+Each successful run you will be rewarded with human souls.
+But beware, a storm is brewing in the distance.
+When ready, hit the arrow.
+
+Control your waggon with W,A,S,D"
+label_settings = SubResource("LabelSettings_gcuwx")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.823944
+anchor_top = 0.766667
+anchor_right = 0.971831
+anchor_bottom = 0.979167
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("5_t8pf7")
+texture_pressed = ExtResource("6_bug4d")
+texture_hover = ExtResource("7_63w5p")
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
