@@ -12,7 +12,6 @@ const LING = preload("res://scenes/enemies/ling.tscn")
 const BRUTE = preload("res://scenes/enemies/brute.tscn")
 const STORM_AREA = preload("res://scenes/storm_area.tscn")
 const STORM_EDGE = preload("res://scenes/storm_edge.tscn")
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 const types_to_tiles = {
 	LevelAreaResource.AreaType.SAND: SAND_TILE_COORD,
@@ -34,12 +33,15 @@ var enemies: Array[Enemy]
 @onready var tile_map: TileMapLayer = $TileMapLayer
 @onready var goal_area: Area2D = $GoalArea
 @onready var currency_label: Label = %CurrencyLabel
+@onready var next_city_label: Label = %NextCityLabel
 @onready var storm_damage_timer: Timer = $StormDamageTimer
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var tile_size: int = tile_map.tile_set.tile_size.x
 @onready var garage_scene: PackedScene = load("res://scenes/garage.tscn")
 @onready var victory_scene: PackedScene = load("res://scenes/victory.tscn")
 
 var level_config: LevelConfigResource
+var next_city_distance: int
 
 func _ready():
 	level_config = Globals.current_level_config()
@@ -67,6 +69,8 @@ func _ready():
 
 		starting_x += level_area.length
 
+	next_city_distance = starting_x * tile_size
+	
 	goal_area.body_entered.connect(on_body_entered_goal_area)
 	storm_damage_timer.timeout.connect(on_storm_damage_timeout)
 	
@@ -172,6 +176,9 @@ func on_health_changed(percentage: float):
 
 func _process(_delta):
 	%FPSLabel.text = "FPS: " + str(Engine.get_frames_per_second())
+	
+	var distance_to_city = int(max((next_city_distance - vehicle.position.x)/5, 0))
+	next_city_label.text = "Next City: " + str(distance_to_city)
 
 func on_storm_damage_timeout():
 	vehicle.take_damage(level_config.storm_damage)
