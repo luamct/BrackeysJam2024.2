@@ -36,3 +36,19 @@ func on_mouse_hovering(module: ModuleResource):
 	
 func on_mouse_exit(_module: ModuleResource):
 	description_container.visible = false
+
+func no_money():
+	description_container.visible = true
+	description_label.text = "Not enough money"
+	skully_sprite.play("skully_talk")
+	await(get_tree().create_timer(2).timeout)
+	description_container.visible = false
+	
+func occupied():
+	print("Slot already occupied!2")
+	description_container.visible = true
+	description_label.text = "Slot already occupied!"
+	skully_sprite.play("skully_talk")
+	await(get_tree().create_timer(2).timeout)
+	description_container.visible = false
+	

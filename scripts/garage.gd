@@ -12,6 +12,7 @@ const LEVEL_SCENE: PackedScene = preload("res://scenes/level.tscn")
 @onready var currency_label: Label = %CurrencyLabel
 @onready var vehicle_stats_label: Label = %VehicleStatsLabel
 @onready var currency_skull: AnimatedSprite2D = $CanvasLayer/CurrencyContainer/CurrencySkull
+@onready var timer: Timer = $Timer
 
 # Game mutable state
 var selected_module: ModuleResource = null
@@ -22,6 +23,13 @@ func _ready() -> void:
 	currency_skull.play("idle")
 	add_modules_to_tilemap()
 	update_vehicle_stats()
+	
+func _process(delta):
+	if timer.is_stopped():
+		currency_skull.play("idle")
+		timer.start(3)
+	else:
+		pass
 
 func add_modules_to_tilemap():
 	for coords in Globals.grid:
@@ -54,7 +62,9 @@ func _input(event: InputEvent):
 						update_vehicle_stats()
 					else: 
 						print("Not enough money!")
+						shop_panel.no_money()
 				else:
+					shop_panel.occupied()
 					print("Slot already occupied!")
 
 	if event is InputEventMouse:
