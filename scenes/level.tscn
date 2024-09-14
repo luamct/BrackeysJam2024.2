@@ -300,6 +300,7 @@ animation = &"idle"
 
 [node name="FPSLabel" type="Label" parent="CanvasLayer"]
 unique_name_in_owner = true
+visible = false
 offset_right = 40.0
 offset_bottom = 21.0
 text = "FPS: ?"
