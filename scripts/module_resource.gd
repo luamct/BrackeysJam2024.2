@@ -8,6 +8,7 @@ extends Resource
 @export var damage: int
 @export var fire_rate: float
 @export var extra_health: int
+@export var engine_power: int
 
 func description() -> String:
 	var desc = ""
@@ -20,9 +21,14 @@ func description() -> String:
 
 		"Armor":
 			desc += "Protection Seal\n"
-			desc += "Extra health: 10\n"
+			desc += "Health: +" + str(extra_health) + "\n"
 			desc += "Cost: " + str(cost) + "\n"
-			
+
+		"EngineBlock":
+			desc += "Engine Block\n"
+			desc += "Engine power: +" + str(engine_power) + "\n"
+			desc += "Cost: " + str(cost) + "\n"
+
 		_:
 			desc += "TODO"
 

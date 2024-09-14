@@ -4,9 +4,11 @@
 
 [resource]
 script = ExtResource("1_plq78")
-name = "Engine"
+name = "EngineBlock"
 atlas_coords = Vector2i(5, 0)
 topdown_atlas_coords = Vector2i(32, 1)
 cost = 2
 damage = 0
-fire_rate = 0
+fire_rate = 0.0
+extra_health = 0
+engine_power = 200

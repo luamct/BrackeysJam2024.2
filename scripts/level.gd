@@ -7,6 +7,7 @@ const STORM_TILE_COORD = Vector2i(1, 0)
 const MOUNTAIN_TILE_COORD = Vector2i(2, 0)
 const START_TILE_COORD = Vector2i(3, 0)
 const GOAL_TILE_COORD = Vector2i(4, 0)
+const NOISE_RANGE = 0.7
 const LING = preload("res://scenes/enemies/ling.tscn")
 const BRUTE = preload("res://scenes/enemies/brute.tscn")
 
@@ -71,7 +72,7 @@ func place_enemies():
 	var length = level_config.areas.reduce(func(total_length, a): return a.length + total_length, 0)
 	enemy_noise.height = height
 	enemy_noise.width = length
-	var enemy_threshold = lerpf(-0.6, 0.6, enemy_noise.color_ramp.offsets[1])
+	var enemy_threshold = lerpf(-NOISE_RANGE, NOISE_RANGE, enemy_noise.color_ramp.offsets[1])
 	#print("threshold ", enemy_threshold)
 	#print("Offsets: ", enemy_noise.color_ramp.offsets)
 	#print(length, " x ", height)
@@ -89,7 +90,7 @@ func place_enemies():
 					var value = enemy_noise.noise.get_noise_2d(x, y)
 					values.append(value)
 
-					if value < enemy_mobs_size:
+					if value < enemy_threshold:
 						var enemy = null
 						if randf() < brute_probability:
 							enemy = BRUTE.instantiate()

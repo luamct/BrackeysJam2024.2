@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=4 uid="uid://dm3igb3h34frm"]
+[gd_scene load_steps=47 format=4 uid="uid://dm3igb3h34frm"]
 
 [ext_resource type="Script" path="res://scripts/garage.gd" id="1_w1bvq"]
 [ext_resource type="PackedScene" uid="uid://cckyy7pvonvg7" path="res://scenes/old_vehicle.tscn" id="2_goglh"]
@@ -8,8 +8,6 @@
 [ext_resource type="Script" path="res://scripts/module_resource.gd" id="5_gi02f"]
 [ext_resource type="Resource" uid="uid://b4kd0tnacemog" path="res://resources/modules/armor.tres" id="6_8hdd4"]
 [ext_resource type="Resource" uid="uid://cpry4cqiwpxx6" path="res://resources/modules/engine.tres" id="7_7x40w"]
-[ext_resource type="Resource" uid="uid://cg81n10axhb5u" path="res://resources/modules/force_field.tres" id="8_v2u38"]
-[ext_resource type="Resource" uid="uid://b7pl8mkhv5sww" path="res://resources/modules/nos.tres" id="9_nfequ"]
 [ext_resource type="FontFile" uid="uid://ccmlo17b67pvu" path="res://assets/fonts/DigitalStrip2BB_Bold.otf" id="11_3mnvu"]
 [ext_resource type="Resource" uid="uid://dbv667ul20ccj" path="res://resources/modules/machine_gun.tres" id="11_f0luf"]
 [ext_resource type="Theme" uid="uid://cfefdawkscps1" path="res://assets/garage_panels.tres" id="11_lsrfh"]
@@ -266,7 +264,7 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("4_6jia3")
-available_modules = Array[ExtResource("5_gi02f")]([ExtResource("6_8hdd4"), ExtResource("7_7x40w"), ExtResource("8_v2u38"), ExtResource("9_nfequ"), ExtResource("11_f0luf")])
+available_modules = Array[ExtResource("5_gi02f")]([ExtResource("6_8hdd4"), ExtResource("7_7x40w"), ExtResource("11_f0luf")])
 
 [node name="ModulesContainer" type="Panel" parent="CanvasLayer/ShopPanel"]
 layout_mode = 0

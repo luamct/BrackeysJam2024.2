@@ -26,3 +26,6 @@ func add_module(module: ModuleResource, coords: Vector2i):
 
 		"Armor":
 			max_health += module.extra_health
+			
+		"EngineBlock":
+			engine_power += module.engine_power

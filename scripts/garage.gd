@@ -61,11 +61,9 @@ func _input(event: InputEvent):
 						
 						update_vehicle_stats()
 					else: 
-						print("Not enough money!")
 						shop_panel.no_money()
 				else:
 					shop_panel.occupied()
-					print("Slot already occupied!")
 
 	if event is InputEventMouse:
 		if selected_module != null:
