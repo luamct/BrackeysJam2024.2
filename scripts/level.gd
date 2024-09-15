@@ -76,6 +76,7 @@ func _ready():
 	
 	place_enemies()
 	Audio.play_engine()
+	Audio.play_level_music()
 
 func place_enemies():
 	var height = level_config.height

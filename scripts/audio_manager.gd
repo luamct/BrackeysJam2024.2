@@ -3,6 +3,11 @@ extends Node2D
 @onready var engine_audio: AudioStreamPlayer = $EngineAudio
 @onready var gun_audio: AudioStreamPlayer = $MachineGunAudio
 @onready var hit_audio: AudioStreamPlayer = $HitAudio
+@onready var bg_audio: AudioStreamPlayer = $BackgroundMusic
+
+const MENU_MUSIC = preload("res://assets/audio/Alexander Ehlers - Doomed.mp3")
+const GARAGE_MUSIC = preload("res://assets/audio/Mech Game.mp3")
+const LEVEL_MUSIC = preload("res://assets/audio/3HR.MT_.3.mp3")
 
 const MACHINE_GUN_SHOTS = [
 	preload("res://assets/audio/machine_gun/Machine Gun Shot 1.wav"),
@@ -25,6 +30,18 @@ const ENEMY_HITS = [
 	preload("res://assets/audio/enemy_hit/Body Flesh 9.wav"),
 	preload("res://assets/audio/enemy_hit/Body Flesh 10.wav")
 ]
+
+func play_menu():
+	bg_audio.stream = MENU_MUSIC
+	bg_audio.play()
+
+func play_garage():
+	bg_audio.stream = GARAGE_MUSIC
+	bg_audio.play()
+
+func play_level_music():
+	bg_audio.stream = LEVEL_MUSIC
+	bg_audio.play()
 
 func play_engine():
 	engine_audio.play()

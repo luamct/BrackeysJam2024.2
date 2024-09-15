@@ -23,6 +23,7 @@ func _ready() -> void:
 	currency_skull.play("idle")
 	add_modules_to_tilemap()
 	update_vehicle_stats()
+	Audio.play_garage()
 	
 func _process(_delta):
 	if timer.is_stopped():
