@@ -260,7 +260,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.3, 0.6, 1, 1.3, 1.4, 1.7, 1.9, 2.3, 2.7, 3.1, 3.7, 4.1, 4.4, 4.8, 5.1, 5.3, 5.5, 5.8, 5.9, 6.1, 6.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.509804), Color(1, 1, 1, 0), Color(1, 1, 1, 0.172549), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 0.52549), Color(1, 1, 1, 0), Color(1, 1, 1, 0.486275), Color(1, 1, 1, 0), Color(1, 1, 1, 0.466667), Color(1, 1, 1, 0), Color(1, 1, 1, 0.172549), Color(1, 1, 1, 0), Color(1, 1, 1, 0.45098), Color(1, 1, 1, 0), Color(1, 1, 1, 0.172549), Color(1, 1, 1, 0), Color(1, 1, 1, 0.678431), Color(1, 1, 1, 0), Color(1, 1, 1, 0.172549), Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.396078), Color(1, 1, 1, 0), Color(1, 1, 1, 0.172549), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 0.380392), Color(1, 1, 1, 0), Color(1, 1, 1, 0.396078), Color(1, 1, 1, 0), Color(1, 1, 1, 0.411765), Color(1, 1, 1, 0), Color(1, 1, 1, 0.172549), Color(1, 1, 1, 0), Color(1, 1, 1, 0.411765), Color(1, 1, 1, 0), Color(1, 1, 1, 0.172549), Color(1, 1, 1, 0), Color(1, 1, 1, 0.439216), Color(1, 1, 1, 0), Color(1, 1, 1, 0.172549), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_t4hn0"]
