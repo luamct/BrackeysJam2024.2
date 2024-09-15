@@ -36,6 +36,8 @@ func on_scan_timeout():
 	
 func on_body_entered(body: Node):
 	if body is Bullet:
+		Audio.play_hit()
+		
 		health -= body.damage
 		body.queue_free()
 

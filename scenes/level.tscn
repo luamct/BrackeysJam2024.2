@@ -324,4 +324,5 @@ libraries = {
 
 [node name="EngineStart" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_6x6bh")
+volume_db = -5.0
 autoplay = true

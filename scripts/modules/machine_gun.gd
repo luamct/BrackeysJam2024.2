@@ -41,6 +41,8 @@ func on_cooldown_timeout():
 	if target_enemy == null:
 		return
 
+	Audio.play_gun()
+	
 	var shoot_direction: Vector2 = (target_enemy.global_position - global_position).normalized()
 	var bullet: RigidBody2D = BULLET_SCENE.instantiate()
 	bullet.global_position = global_position

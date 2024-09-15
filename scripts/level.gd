@@ -75,6 +75,7 @@ func _ready():
 	storm_damage_timer.timeout.connect(on_storm_damage_timeout)
 	
 	place_enemies()
+	Audio.play_engine()
 
 func place_enemies():
 	var height = level_config.height
@@ -141,7 +142,6 @@ func add_storm_areas(x, length):
 	
 func on_entering_storm(_body):
 	storm_damage_timer.start()
-	print("storm")
 	animation_player.play("storm")
 	
 func on_leaving_storm(_body):
@@ -160,6 +160,7 @@ func on_body_entered_goal_area(body: Node2D):
 		Globals.current_level += 1
 
 		await get_tree().create_timer(1.0).timeout
+		Audio.stop_engine()
 		if Globals.no_next_level():
 			#Add Victory screen!
 			get_tree().change_scene_to_packed(victory_scene)

@@ -18,6 +18,7 @@ config/features=PackedStringArray("4.3", "Forward Plus")
 [autoload]
 
 Globals="*res://scenes/globals.tscn"
+Audio="*res://scenes/audio_manager.tscn"
 
 [display]
 

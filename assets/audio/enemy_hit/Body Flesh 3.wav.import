@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dkc6q42astboh"
+path="res://.godot/imported/Body Flesh 3.wav-5b2b4b5d096ae2aa4750d38b69aa3e93.sample"
+
+[deps]
+
+source_file="res://assets/audio/enemy_hit/Body Flesh 3.wav"
+dest_files=["res://.godot/imported/Body Flesh 3.wav-5b2b4b5d096ae2aa4750d38b69aa3e93.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

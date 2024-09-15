@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://c8iol6mkifcpk"]
+[gd_scene load_steps=27 format=3 uid="uid://c8iol6mkifcpk"]
 
 [ext_resource type="Script" path="res://scripts/globals.gd" id="1_g2v84"]
 [ext_resource type="Script" path="res://scripts/level_config_resource.gd" id="2_03jvu"]
@@ -29,6 +29,11 @@ script = ExtResource("3_ejvrx")
 type = 2
 length = 100
 
+[sub_resource type="Resource" id="Resource_son6d"]
+script = ExtResource("3_ejvrx")
+type = 1
+length = 20
+
 [sub_resource type="Resource" id="Resource_m84iu"]
 script = ExtResource("3_ejvrx")
 type = 3
@@ -40,7 +45,7 @@ city_name = "Doomspire"
 reward = 10
 height = 100
 storm_damage = 1
-areas = Array[ExtResource("3_ejvrx")]([SubResource("Resource_rwoiw"), SubResource("Resource_6pjob"), SubResource("Resource_6wf8c"), SubResource("Resource_8bp2c"), SubResource("Resource_26ctg"), SubResource("Resource_m84iu")])
+areas = Array[ExtResource("3_ejvrx")]([SubResource("Resource_rwoiw"), SubResource("Resource_6pjob"), SubResource("Resource_6wf8c"), SubResource("Resource_8bp2c"), SubResource("Resource_26ctg"), SubResource("Resource_son6d"), SubResource("Resource_m84iu")])
 
 [sub_resource type="Resource" id="Resource_jxkky"]
 script = ExtResource("3_ejvrx")
