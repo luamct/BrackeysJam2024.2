@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="ModuleResource" load_steps=2 format=3 uid="uid://cg81n10axhb5u"]
 
-[ext_resource type="Script" path="res://scripts/module_resource.gd" id="1_kbrd3"]
+[ext_resource type="Script" path="res://scripts/module_resource.gd" id="1_j6k66"]
 
 [resource]
-script = ExtResource("1_kbrd3")
-name = "ForceField"
+script = ExtResource("1_j6k66")
+name = "LubTank"
 atlas_coords = Vector2i(7, 0)
 topdown_atlas_coords = Vector2i(34, 1)
-cost = 2
+cost = 8
 damage = 0
-fire_rate = 0
+fire_rate = 0.0
+extra_health = 0
+engine_power = 0

@@ -39,7 +39,7 @@ func _ready():
 		match module.name:
 			"MachineGun":
 				var local_position = modules_tile_map.map_to_local(coords) + modules_tile_map.position
-				var instance = MachineGun.create(module, local_position)
+				var instance = MachineGun.create(module, local_position, coords)
 				modules.add_child(instance)
 
 	health = Globals.max_health

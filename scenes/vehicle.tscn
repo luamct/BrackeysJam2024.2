@@ -112,7 +112,7 @@ radius = 15.0
 height = 46.0
 
 [node name="Vehicle" type="CharacterBody2D" groups=["player"]]
-z_index = 10
+z_index = 8
 position = Vector2(98, 0)
 collision_mask = 10
 motion_mode = 1
