@@ -7,7 +7,18 @@ const STORM_TILE_COORD = Vector2i(1, 0)
 const MOUNTAIN_TILE_COORD = Vector2i(2, 0)
 const START_TILE_COORD = Vector2i(3, 0)
 const GOAL_TILE_COORD = Vector2i(4, 0)
+const CITY_TILE_COORD = Vector2i(7, 0)
 const NOISE_RANGE = 0.7
+const PROPS_COORDS = [
+	Vector2i(0, 3),
+	Vector2i(1, 3),
+	Vector2i(2, 3),
+	Vector2i(0, 4),
+	Vector2i(1, 4),
+	Vector2i(2, 4),
+	Vector2i(0, 5),
+	Vector2i(1, 5),
+]
 const LING = preload("res://scenes/enemies/ling.tscn")
 const BRUTE = preload("res://scenes/enemies/brute.tscn")
 const STORM_AREA = preload("res://scenes/storm_area.tscn")
@@ -31,6 +42,7 @@ var enemies: Array[Enemy]
 @onready var vehicle: Vehicle = $Vehicle
 @onready var health_bar: ProgressBar = %HealthBar
 @onready var tile_map: TileMapLayer = $TileMapLayer
+@onready var props_tile_map: TileMapLayer = $PropsTileMapLayer
 @onready var goal_area: Area2D = $GoalArea
 @onready var currency_label: Label = %CurrencyLabel
 @onready var next_city_label: Label = %NextCityLabel
@@ -59,16 +71,34 @@ func _ready():
 
 		for y in range(-half_height, half_height):
 			for x in range(level_area.length):
+				var cell_coord = Vector2i(starting_x + x, y)
 				var tile_coord: Vector2i = types_to_tiles[level_area.type]
 				var r = randf()
-				if r < 0.4: tile_coord.y = 0
+				if r < 0.35: tile_coord.y = 0
 				elif r < 0.7: tile_coord.y = 1
 				elif r < 1.0: tile_coord.y = 2
+				
+				# Extra props
+				r = randf()
+				if r < 0.05:
+					props_tile_map.set_cell(cell_coord, SOURCE_ID, PROPS_COORDS.pick_random())
 
-				tile_map.set_cell(Vector2i(starting_x + x, y), SOURCE_ID, tile_coord)
+				tile_map.set_cell(cell_coord, SOURCE_ID, tile_coord)
 
 		starting_x += level_area.length
 
+	# Add city tiles before start and after end
+	for y in range(-half_height, half_height):
+		for x in (range(-10, 0) + range(starting_x, starting_x + 10)):
+			var cell_coord = Vector2i(x, y)
+			var tile_coord: Vector2i = CITY_TILE_COORD
+			var r = randf()
+			if r < 0.35: tile_coord.y = 0
+			elif r < 0.7: tile_coord.y = 1
+			elif r < 1.0: tile_coord.y = 2
+
+			tile_map.set_cell(cell_coord, SOURCE_ID, tile_coord)
+	
 	next_city_distance = starting_x * tile_size
 	
 	goal_area.body_entered.connect(on_body_entered_goal_area)
