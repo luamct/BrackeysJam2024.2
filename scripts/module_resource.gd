@@ -29,6 +29,11 @@ func description() -> String:
 			desc += "Engine power: +" + str(engine_power) + "\n"
 			desc += "Cost: " + str(cost) + "\n"
 
+		"LubTank":
+			desc += "Lub Tank\n"
+			desc += "Improves adjacent modules in 50%\n"
+			desc += "Cost: " + str(cost) + "\n"
+
 		_:
 			desc += "TODO"
 
