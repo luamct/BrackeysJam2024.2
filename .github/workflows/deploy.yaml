@@ -14,7 +14,7 @@ env:
   BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   GODOT_VERSION: "4.3"
-  ITCH_PROJECT_NAME: "brackeys-20242"
+  ITCH_PROJECT_NAME: "infernal-run"
   ITCH_USERNAME: "luamct"
 
 jobs:
