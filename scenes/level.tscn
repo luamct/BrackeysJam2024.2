@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://kygcv1vlqjgb"]
+[gd_scene load_steps=37 format=3 uid="uid://kygcv1vlqjgb"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_0nox1"]
 [ext_resource type="Texture2D" uid="uid://bpgd1ftyq1bb4" path="res://assets/basic-terrain-tiles.png" id="4_8bh6c"]
@@ -269,6 +269,9 @@ _data = {
 "storm": SubResource("Animation_x84xk")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r617v"]
+size = Vector2(48, 3200)
+
 [node name="Level" type="Node2D" groups=["level"]]
 script = ExtResource("1_0nox1")
 enemy_noise = SubResource("NoiseTexture2D_l7sej")
@@ -378,3 +381,9 @@ libraries = {
 stream = ExtResource("11_6x6bh")
 volume_db = -5.0
 autoplay = true
+
+[node name="StartWall" type="StaticBody2D" parent="."]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StartWall"]
+shape = SubResource("RectangleShape2D_r617v")
